@@ -1,0 +1,13 @@
+body {
+  background-color: rgb(59, 59, 6);
+
+  .square{
+    background-color: red;
+    &.primeiro:hover {
+      background-color: purple;
+      transition: all 1s ease;
+
+    }
+  }
+
+}
