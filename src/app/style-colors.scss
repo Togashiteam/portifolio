@@ -1,0 +1,87 @@
+/* .colors */
+.primary {
+  background-color: $primary;
+  color: $text-light;
+}
+
+.success {
+  background-color: $success;
+  color: $text-dark;
+}
+
+.alert {
+  background-color: $alert;
+  color: $text-dark;
+}
+
+.danger {
+  background-color: $danger;
+  color: $text-dark;
+}
+
+.dark {
+  background-color: $danger;
+  color: $text-dark;
+}
+
+.light {
+  background-color: $danger;
+  color: $text-dark;
+}
+
+/* .bg-primary */
+.bg {
+  background-color: transparent;
+  &-primary {
+    background-color: $primary;
+  }
+
+  &-success {
+    background-color: $success;
+  }
+
+  &-alert {
+    background-color: $alert;
+  }
+
+  &-danger {
+    background-color: $danger;
+  }
+
+  &-dark {
+    background-color: $dark;
+  }
+
+  &-light {
+    background-color: $light;
+  }
+}
+
+/* .color-primary */
+.color {
+  color: inherit;
+
+  &-primary {
+    color: $primary;
+  }
+
+  &-success {
+    color: $success;
+  }
+
+  &-alert {
+    color: $alert;
+  }
+
+  &-danger {
+    color: $danger;
+  }
+
+  &-dark {
+    color: $dark;
+  }
+
+  &-light {
+    color: $light;
+  }
+}

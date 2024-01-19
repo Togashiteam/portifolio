@@ -1,0 +1,125 @@
+@import 'style-variables';
+@import 'style-colors';
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;700&family=Lily+Script+One&family=Roboto+Slab:wght@100;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $primary-dark;
+  font-family: $font-roboto;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-wrapper {
+  height: 100%;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.35);
+  width: 100%;
+  height: 90px;
+
+  .logo {
+    position: relative;
+    width: 193px;
+    height: 90px;
+    margin: 0 auto;
+    font-size: 48px;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 4px 4px 2px rgba(0,0,0,0.35);
+
+    .text-secondary {
+      position: absolute;
+      color: #fff;
+
+      &.port {
+        top: 0;
+        left: 8px;
+        font-weight: 600;
+      }
+
+      &.io {
+        top: 0;
+        left: 154px;
+        font-weight: 600;
+      }
+    }
+
+    .text-funny {
+      position: absolute;
+      color: $danger;
+      &.fun {
+        top: 4px;
+        left: 79px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.35);
+  width: 100%;
+  height: 90px;
+}
+
+.title {
+  font-family: $font-khand;
+}
+
+.text-secondary {
+  font-family: $font-khand;
+}
+
+.text-funny {
+  font-family: $font-lily;
+}
+
+.text-roboto {
+  font-family: $font-roboto;
+}
+
+.action-button {
+  transition: all 0.33s ease;
+  padding: $small;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: $radius;
+  box-shadow: 0px 0px 0px 2px transparent;
+
+  &:hover {
+    transition: all 0.33s ease;
+
+    &.primary {
+      background-color: $primary-light;
+      box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.35);
+    }
+
+    &.success {
+      background-color: $success-dark;
+      box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.35);
+    }
+
+    &.alert {
+      background-color: $alert-dark;
+      box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.35);
+    }
+
+    &.danger {
+      background-color: $danger-dark;
+      box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.35);
+    }
+  }
+}
