@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import "./global.scss";
+import { Roboto_Slab, Khand, Lily_Script_One } from "next/font/google";
+import "./globals.scss";
+import "./portfunio.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+
+const roboto = Roboto_Slab({ subsets: ["latin"] });
+const khand = Khand({
+  subsets: ["latin"],
+  weight: "400"
+});
+const lily = Lily_Script_One({
+  subsets: ["latin"],
+  weight: "400"
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={roboto.className}>{children}</body>
     </html>
   );
 }
