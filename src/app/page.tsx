@@ -9,7 +9,15 @@ export default function Page() {
         </div>
       </header>
 
-      <div className="container-wrapper">
+      <div className="content-wrapper">
+        <nav className="menu">
+          <ul>
+            <li> Items do Menu</li>
+            <li> Items do Menu</li>
+            <li> Items do Menu</li>
+          </ul>
+        </nav>
+
         <div className="content">
           <div className="list-item">
             <a href="./style">
