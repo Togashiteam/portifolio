@@ -1,7 +1,3 @@
 export default function Style() {
-
-    <h1>
-      STYLE Works
-    </h1>
-
+  return <h1>STYLE Works</h1>;
 }
