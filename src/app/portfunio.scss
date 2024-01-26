@@ -1,6 +1,5 @@
-@import 'style-variables';
-@import 'style-colors';
-@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;700&family=Lily+Script+One&family=Roboto+Slab:wght@100;400;700&display=swap');
+@import "style-variables";
+@import "style-colors";
 
 * {
   margin: 0;
@@ -10,7 +9,6 @@
 
 body {
   background-color: $primary-dark;
-  font-family: $font-roboto;
 }
 
 .wrapper {
@@ -35,7 +33,6 @@ body {
   }
 
   .content {
-    background-color: rgba(0, 0, 255, 0.35);
     width: 100%;
     min-width: 768px;
     max-width: 1200px;
@@ -58,7 +55,7 @@ header {
     font-size: 48px;
     font-weight: 600;
     text-align: center;
-    text-shadow: 4px 4px 2px rgba(0,0,0,0.35);
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.35);
 
     .text-secondary {
       position: absolute;
@@ -95,22 +92,6 @@ footer {
   height: 90px;
 }
 
-.title {
-  font-family: $font-khand;
-}
-
-.text-secondary {
-  font-family: $font-khand;
-}
-
-.text-funny {
-  font-family: $font-lily;
-}
-
-.text-roboto {
-  font-family: $font-roboto;
-}
-
 .action-button {
   transition: all 0.33s ease;
   padding: $small;
@@ -119,6 +100,8 @@ footer {
   border-color: transparent;
   border-radius: $radius;
   box-shadow: 0px 0px 0px 2px transparent;
+  width: 150px;
+  height: 150px;
 
   &:hover {
     transition: all 0.33s ease;
