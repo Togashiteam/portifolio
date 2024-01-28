@@ -3,15 +3,14 @@ import { Roboto_Slab, Khand, Lily_Script_One } from "next/font/google";
 import "./globals.scss";
 import "./portfunio.scss";
 
-
 const roboto = Roboto_Slab({ subsets: ["latin"] });
 const khand = Khand({
   subsets: ["latin"],
-  weight: "400"
+  weight: "400",
 });
 const lily = Lily_Script_One({
   subsets: ["latin"],
-  weight: "400"
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="pt-br">
       <body className={roboto.className}>{children}</body>
     </html>
   );

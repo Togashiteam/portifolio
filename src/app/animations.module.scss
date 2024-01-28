@@ -1,0 +1,8 @@
+    @keyframes rotateAnimation{
+from { transform: scale(0.95); }
+to { transform: scale(1.05); }
+}
+
+.flash {
+animation: flash 500ms ease infinite alternate;
+}
