@@ -15,7 +15,7 @@ export default function Home() {
             <div className="content">
               <div className="item-wrapper">
                 <a href="./style">
-                  <div className="action-button danger flex w-40 h-40">
+                  <div className="action-button danger flex">
                     <span className="description invisible sm:visible">
                       {" "}
                       style{" "}
@@ -24,7 +24,7 @@ export default function Home() {
                       {" "}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="25px"
+                        width="25"
                         height="25px"
                         fill="currentColor"
                         className="bi bi-brush"
@@ -34,7 +34,7 @@ export default function Home() {
                       </svg>{" "}
                     </span>
 
-                    <span className="action-button-mobile visible sm:invisible">
+                    <span className="action-button-mobile visible sm:invisible flex">
                       STL MOBILE
                       <p className="mobile"> help for designers </p>
                     </span>
@@ -47,7 +47,7 @@ export default function Home() {
 
               <div className="item-wrapper">
                 <a href="./style">
-                  <div className="action-button success flex w-40 h-40">
+                  <div className="action-button success flex">
                     <span className="description invisible sm:visible">
                       {" "}
                       playtime{" "}
@@ -78,7 +78,7 @@ export default function Home() {
 
               <div className="item-wrapper">
                 <a href="./style">
-                  <div className="action-button alert flex w-40 h-40">
+                  <div className="action-button alert flex">
                     <span className="description invisible sm:visible text-align">
                       {" "}
                       Worktime{" "}
