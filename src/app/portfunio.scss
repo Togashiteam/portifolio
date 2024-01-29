@@ -132,6 +132,14 @@ footer {
   border-color: transparent;
   border-radius: $radius;
   box-shadow: 0px 0px 0px 2px transparent;
+  width: 150px;
+  height: 150px;
+          &.mobile{
+    width: 350px;
+    height: 150px;
+    top: 217px;
+    left: 40px;
+  }
 
   &:hover {
     transition: all 0.33s ease;
