@@ -45,16 +45,14 @@ body {
     margin: 0 auto;
     overflow: auto;
     .mobile{
-    font-weight: 400;
-    line-height: 37px;
+    font-weight: 400px;
+    line-height: 36px;
     letter-spacing: 0em;
-    text-align: start;
     font-size: 24px;
     font-family:$font-khand;
     color: #37193B80;
     }
   }
-
 }
 
 header {
@@ -132,14 +130,8 @@ footer {
   border-color: transparent;
   border-radius: $radius;
   box-shadow: 0px 0px 0px 2px transparent;
-  width: 150px;
-  height: 150px;
-          &.mobile{
-    width: 350px;
-    height: 150px;
-    top: 217px;
-    left: 40px;
-  }
+  display:flex;
+  justify-content:flex-start;
 
   &:hover {
     transition: all 0.33s ease;
