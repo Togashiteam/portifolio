@@ -10,13 +10,23 @@ export default function Home() {
               <span className="text-funny fun"> Fun </span>
             </div>
           </header>
-
+          {/*
+          <div className="content-wrapper">
+            <nav className="menu">
+              <ul>
+                <li> Items do Menu</li>
+                <li> Items do Menu</li>
+                <li> Items do Menu</li>
+              </ul>
+            </nav>  
+          </div>
+*/}
           <div className="content-wrapper bg-primary-400">
             <div className="content">
               <div className="item-wrapper">
                 <a href="./style">
-                  <div className="action-button danger flex">
-                    <span className="description invisible sm:visible">
+                  <div className="action-button danger flex w-80 sm:w-36 h-36">
+                    <span className="description invisible sm:visible ">
                       {" "}
                       style{" "}
                     </span>
@@ -47,7 +57,7 @@ export default function Home() {
 
               <div className="item-wrapper">
                 <a href="./style">
-                  <div className="action-button success flex">
+                  <div className="action-button success flex w-80 sm:w-36 h-36">
                     <span className="description invisible sm:visible">
                       {" "}
                       playtime{" "}
@@ -78,7 +88,7 @@ export default function Home() {
 
               <div className="item-wrapper">
                 <a href="./style">
-                  <div className="action-button alert flex">
+                  <div className="action-button alert flex w-80 sm:w-36 h-36">
                     <span className="description invisible sm:visible text-align">
                       {" "}
                       Worktime{" "}
