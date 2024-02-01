@@ -1,9 +1,10 @@
 export class BorderStyle implements IBorderStyle {
-  borderWidth: string = "1";
-  borderTopWidth: string = "1";
-  borderRightWidth: string = "1";
-  borderBottomWidth: string = "1";
-  borderLeftWidth: string = "1";
+  isSimpleValue: boolean = true;
+  borderWidth: string = "0";
+  borderTopWidth: string = "0";
+  borderRightWidth: string = "0";
+  borderBottomWidth: string = "0";
+  borderLeftWidth: string = "0";
   borderColor: string = "#000000";
   borderTopColor: string = "#000000";
   borderRightColor: string = "#000000";
@@ -22,32 +23,57 @@ export class BorderStyle implements IBorderStyle {
 
   constructor(obj?: IBorderStyle) {
     if (obj) {
+      this.isSimpleValue = obj.isSimpleValue;
       this.borderWidth = obj.borderWidth;
-      obj.borderWidth;
-      this.borderTopWidth = obj.borderWidth ? obj.borderWidth : obj.borderTopWidth;
-      this.borderRightWidth = obj.borderWidth ? obj.borderWidth : obj.borderRightWidth;
-      this.borderBottomWidth = obj.borderWidth ? obj.borderWidth : obj.borderBottomWidth;
-      this.borderLeftWidth = obj.borderWidth ? obj.borderWidth : obj.borderLeftWidth;
+      this.borderTopWidth = obj.borderTopWidth;
+      this.borderRightWidth = obj.borderRightWidth;
+      this.borderBottomWidth = obj.borderBottomWidth;
+      this.borderLeftWidth = obj.borderLeftWidth;
       this.borderColor = obj.borderColor;
-      this.borderTopColor = obj.borderColor ? obj.borderColor : obj.borderTopColor;
-      this.borderRightColor = obj.borderColor ? obj.borderColor : obj.borderRightColor;
-      this.borderBottomColor = obj.borderColor ? obj.borderColor : obj.borderBottomColor;
-      this.borderLeftColor = obj.borderColor ? obj.borderColor : obj.borderLeftColor;
+      this.borderTopColor = obj.borderColor
+        ? obj.borderColor
+        : obj.borderTopColor;
+      this.borderRightColor = obj.borderColor
+        ? obj.borderColor
+        : obj.borderRightColor;
+      this.borderBottomColor = obj.borderColor
+        ? obj.borderColor
+        : obj.borderBottomColor;
+      this.borderLeftColor = obj.borderColor
+        ? obj.borderColor
+        : obj.borderLeftColor;
       this.borderStyle = obj.borderStyle;
-      this.borderTopStyle = obj.borderStyle ? obj.borderStyle : obj.borderTopStyle;
-      this.borderRightStyle = obj.borderStyle ? obj.borderStyle : obj.borderRightStyle;
-      this.borderBottomStyle = obj.borderStyle ? obj.borderStyle : obj.borderBottomStyle;
-      this.borderLeftStyle = obj.borderStyle ? obj.borderStyle : obj.borderLeftStyle;
+      this.borderTopStyle = obj.borderStyle
+        ? obj.borderStyle
+        : obj.borderTopStyle;
+      this.borderRightStyle = obj.borderStyle
+        ? obj.borderStyle
+        : obj.borderRightStyle;
+      this.borderBottomStyle = obj.borderStyle
+        ? obj.borderStyle
+        : obj.borderBottomStyle;
+      this.borderLeftStyle = obj.borderStyle
+        ? obj.borderStyle
+        : obj.borderLeftStyle;
       this.borderRadius = obj.borderRadius;
-      this.borderTopLeftRadius = obj.borderRadius ? obj.borderRadius : obj.borderTopLeftRadius;
-      this.borderTopRightRadius = obj.borderRadius ? obj.borderRadius : obj.borderTopRightRadius;
-      this.borderBottomRightRadius = obj.borderRadius ? obj.borderRadius : obj.borderBottomRightRadius;
-      this.borderBottomLefttRadius = obj.borderRadius ? obj.borderRadius : obj.borderBottomLefttRadius;
+      this.borderTopLeftRadius = obj.borderRadius
+        ? obj.borderRadius
+        : obj.borderTopLeftRadius;
+      this.borderTopRightRadius = obj.borderRadius
+        ? obj.borderRadius
+        : obj.borderTopRightRadius;
+      this.borderBottomRightRadius = obj.borderRadius
+        ? obj.borderRadius
+        : obj.borderBottomRightRadius;
+      this.borderBottomLefttRadius = obj.borderRadius
+        ? obj.borderRadius
+        : obj.borderBottomLefttRadius;
     }
   }
 }
 
 export interface IBorderStyle {
+  isSimpleValue: boolean;
   borderWidth: string;
   borderTopWidth: string;
   borderRightWidth: string;
@@ -68,5 +94,4 @@ export interface IBorderStyle {
   borderTopRightRadius: string;
   borderBottomRightRadius: string;
   borderBottomLefttRadius: string;
-
 }

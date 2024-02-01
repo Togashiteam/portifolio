@@ -1,74 +1,91 @@
 "use client";
 import { ChangeEvent, useState } from "react";
-import BorderEditable from "@/components/irregulars/border/border";
+import BorderEditable from "@/components/irregulars/Border";
+import InputRange from "@/components/inputs/InputRange";
 
 export default function StyleBorder() {
-
-
   const [simpleValues, setSimpleValues] = useState<boolean>(true);
-  const [borderWidthValue, setBorderWidthValue] = useState<string>('1');
-  const [borderColorValue, setBorderColorValue] = useState<string>('#000000');
-  const [borderStyleValue, setBorderStyleValue] = useState<string>('solid');
-  const [borderRadiusValue, setBorderRadiusValue] = useState<string>('0');
+
+  const [borderWidthValue, setBorderWidthValue] = useState<string>("1");
+  const [borderTopWidthValue, setBorderTopWidthValue] = useState<string>("0");
+  const [borderRightWidthValue, setBorderRightWidthValue] = useState<string>("0");
+  const [borderBottomWidthValue, setBorderBottomWidthValue] = useState<string>("0");
+  const [borderLeftWidthValue, setBorderLeftWidthValue] = useState<string>("0");
+
+
+  const [borderColorValue, setBorderColorValue] = useState<string>("#000000");
+  const [borderStyleValue, setBorderStyleValue] = useState<string>("solid");
+  const [borderRadiusValue, setBorderRadiusValue] = useState<string>("0");
 
   const setSimpleValue = (e: ChangeEvent<HTMLInputElement>) => setSimpleValues(e.currentTarget.checked);
-  const setBorderWidth = (e: ChangeEvent<HTMLInputElement>) => setBorderWidthValue(e.currentTarget.value);
   const setBorderColor = (e: ChangeEvent<HTMLInputElement>) => setBorderColorValue(e.currentTarget.value);
   const setBorderStyle = (e: ChangeEvent<HTMLSelectElement>) => setBorderStyleValue(e.currentTarget.value);
   const setBorderRadius = (e: ChangeEvent<HTMLInputElement>) => setBorderRadiusValue(e.currentTarget.value);
 
   return (
     <>
-      <div className="mb-5 sm:mb-0 sm:grid sm:grid-cols-3 sm:gap-8 h-screen">
-        <div className="sm:col-span-1">
+      <div className="mb-5 md:mb-0 md:grid md:grid-cols-3 md:gap-8 h-screen">
+        <div className="md:col-span-1">
           <div className="formulario bg-white p-5 overflow-x-clip">
             <label
               htmlFor="username"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
-              Complex Values
+              Show Simple Values
             </label>
             <div className="mt-2">
               <input
                 className="input checkbox"
                 type="checkbox"
                 onChange={setSimpleValue}
-                defaultChecked={true}
+                checked={simpleValues}
               />
             </div>
 
             {simpleValues && (
               <div className="border-width-wrapper">
-                <label
-                  htmlFor="borderWidth"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Border Width
-                </label>
-                <div className="mt-2 flex flex-row ">
-                  <input
-                    id="borderWidth"
-                    className="input range"
-                    type="range"
-                    min={0}
-                    max={255}
-                    onChange={setBorderWidth}
-                    value={borderWidthValue ? borderWidthValue : "1"}
-                  />
-                  <input
-                    className="input number"
-                    type="number"
-                    min={0}
-                    max={255}
-                    onChange={setBorderWidth}
-                    value={borderWidthValue ? borderWidthValue : "1"}
-                  />
-                </div>
+                <InputRange
+                  label={"Border Width"}
+                  borderWidth={borderWidthValue}
+                  setBorderWidth={setBorderWidthValue}
+                  defaultValue={"1"}
+                ></InputRange>
               </div>
             )}
             {!simpleValues && (
               <div className="multiple-border-width-wrapper">
-                <h1> Multiple Widths </h1>
+                <div className="border-width-wrapper">
+                  <InputRange
+                    label={"Border Top"}
+                    borderWidth={borderTopWidthValue}
+                    setBorderWidth={setBorderTopWidthValue}
+                    defaultValue={"1"}
+                  ></InputRange>
+                </div>
+                <div className="border-width-wrapper">
+                  <InputRange
+                    label={"Border Right"}
+                    borderWidth={borderRightWidthValue}
+                    setBorderWidth={setBorderRightWidthValue}
+                    defaultValue={"1"}
+                  ></InputRange>
+                </div>
+                <div className="border-width-wrapper">
+                  <InputRange
+                    label={"Border Bottom"}
+                    borderWidth={borderBottomWidthValue}
+                    setBorderWidth={setBorderBottomWidthValue}
+                    defaultValue={"1"}
+                  ></InputRange>
+                </div>
+                <div className="border-width-wrapper">
+                  <InputRange
+                    label={"Border Left"}
+                    borderWidth={borderLeftWidthValue}
+                    setBorderWidth={setBorderLeftWidthValue}
+                    defaultValue={"1"}
+                  ></InputRange>
+                </div>
               </div>
             )}
 
@@ -83,7 +100,6 @@ export default function StyleBorder() {
                 <div className="mt-2">
                   <select
                     className="input select"
-                    defaultValue={"solid"}
                     onChange={setBorderStyle}
                     value={borderStyleValue}
                   >
@@ -151,7 +167,6 @@ export default function StyleBorder() {
                     type="range"
                     min={0}
                     max={255}
-                    defaultValue={0}
                     onChange={setBorderRadius}
                     value={borderRadiusValue ? borderRadiusValue : "0"}
                   />
@@ -160,7 +175,6 @@ export default function StyleBorder() {
                     type="number"
                     min={0}
                     max={255}
-                    defaultValue={0}
                     onChange={setBorderRadius}
                     value={borderRadiusValue ? borderRadiusValue : "0"}
                   />
@@ -175,13 +189,30 @@ export default function StyleBorder() {
           </div>
         </div>
 
-        <div className="sm:col-span-2 h-full">
+        <div className="md:col-span-2 h-full">
           <div className="border-editable bg-white p-5 overflow-x-clip h-full">
             <BorderEditable
+              isSimpleValue={simpleValues}
+              borderBottomLefttRadius={""}
               borderWidth={borderWidthValue}
               borderColor={borderColorValue}
               borderStyle={borderStyleValue}
               borderRadius={borderRadiusValue}
+              borderTopWidth={borderTopWidthValue}
+              borderRightWidth={borderRightWidthValue}
+              borderBottomWidth={borderBottomWidthValue}
+              borderLeftWidth={borderLeftWidthValue}
+              borderTopColor={""}
+              borderRightColor={""}
+              borderBottomColor={""}
+              borderLeftColor={""}
+              borderTopStyle={""}
+              borderRightStyle={""}
+              borderBottomStyle={""}
+              borderLeftStyle={""}
+              borderTopLeftRadius={""}
+              borderTopRightRadius={""}
+              borderBottomRightRadius={""}
             />
           </div>
         </div>
