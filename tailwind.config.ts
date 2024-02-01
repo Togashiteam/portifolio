@@ -33,7 +33,8 @@ const config: Config = {
         light: { 300: "#eee", 400: "#ccc" },
       },
       fontFamily: {
-        khand: ["Khand", "Roboto", "sans-serif"],
+        khand: ["var(--font-family-khand)"],
+        roboto: ["var(--font-family-roboto)"],
       },
     },
   },
