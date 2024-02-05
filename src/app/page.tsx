@@ -21,7 +21,7 @@ export default function Page() {
         <div className="content">
           <div className="list-item">
             <a href="./style">
-              <div className="action-button danger w-40 h-40">
+              <div className="action-button danger w-40 h-40 sm:collapse">
                 <span className="title"> STL </span>
                 <span className="icon"> S </span>
                 <span className="description"> style </span>
