@@ -33,7 +33,8 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        khand: ["Khand", "Roboto", "sans-serif"],
+        khand: ["var(--font-family-khand)"],
+        roboto: ["var(--font-family-roboto)"],
       },
     },
   },

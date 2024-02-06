@@ -1,11 +1,5 @@
-@import 'style-variables';
-@import 'style-colors';
-@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;700&family=Lily+Script+One&family=Roboto+Slab:wght@100;400;700&display=swap');
-@import "animations.module";
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
+@import "style-variables";
+@import "style-colors";
 
 * {
   margin: 0;
@@ -15,7 +9,6 @@
 
 body {
   background-color: $primary-dark;
-  font-family: $font-roboto;
 }
 
 .item-wrapper {
@@ -84,7 +77,7 @@ header {
     font-size: 48px;
     font-weight: 600;
     text-align: center;
-    text-shadow: 4px 4px 2px rgba(0,0,0,0.35);
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.35);
 
     .text-secondary {
       position: absolute;
@@ -119,23 +112,6 @@ footer {
   background-color: rgba(0, 0, 0, 0.35);
   width: 100%;
   height: 90px;
-}
-
-.title {
-  font-family: $font-khand;
-}
-
-.text-secondary {
-  font-family: $font-khand;
-
-}
-
-.text-funny {
-  font-family: $font-lily;
-}
-
-.text-roboto {
-  font-family: $font-roboto;
 }
 
 .action-button {
