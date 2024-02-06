@@ -18,9 +18,25 @@ body {
   font-family: $font-roboto;
 }
 
-.wrapper {
+.item-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  font-family: $font-khand;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 61,16px;
+  color:#E75A7A;
+}
+.footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: end;
+  font-family: $font-khand;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 61,16px;
+  color:#FFFFFF80;
+;
 }
 
 .content-wrapper {
@@ -131,7 +147,10 @@ footer {
   border-radius: $radius;
   box-shadow: 0px 0px 0px 2px transparent;
   display:flex;
-  justify-content:flex-start;
+  align-items: flex-end;
+  font-family: $font-khand;
+  font-size: 36px;
+  color: #37193b;
 
   &:hover {
     transition: all 0.33s ease;
@@ -156,7 +175,22 @@ footer {
       box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.35);
     }
     .icon {
-        animation: rotateAnimation 1s infinite alternate;
+        animation: pulseAnimation 1s infinite alternate;
       }
   }
+}
+
+.action-button-description{
+align-self: center;
+
+}
+.action-button-mobile{
+  font-family: $font-khand;
+}
+.item-box{
+  font-family: $font-khand;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30.58px;
+  color: rgba(55, 25, 59,0.5);
 }

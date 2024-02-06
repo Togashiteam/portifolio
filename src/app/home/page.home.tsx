@@ -3,6 +3,7 @@ export default function Home() {
   return (
     <>
       <>
+        {/*
         <div className="wrapper w-screen h-screen">
           <header>
             <div className="logo">
@@ -11,7 +12,7 @@ export default function Home() {
               <span className="text-funny fun"> Fun </span>
             </div>
           </header>
-          {/*
+          
           <div className="content-wrapper">
             <nav className="menu">
               <ul>
@@ -21,7 +22,7 @@ export default function Home() {
               </ul>
             </nav>  
           </div>
-*/}
+
           <div className="content-wrapper bg-primary-400">
             <div className="content">
               <div className="item-wrapper flex">
@@ -48,7 +49,7 @@ export default function Home() {
                       STYLE
                     </span>
                     <span className="action-button-mobile visible sm:invisible">
-                      STLM
+                      STL MOBILE
                       <p className="mobile"> help for designers </p>
                     </span>
                   </div>
@@ -82,7 +83,7 @@ export default function Home() {
                       Playtime
                     </span>
                     <span className="action-button-mobile visible sm:invisible flex m-2">
-                      FUNM
+                      FUN mobile
                       <p className="mobile">to put away stress </p>
                     </span>
                   </div>
@@ -116,7 +117,7 @@ export default function Home() {
                       Work
                     </span>
                     <span className="action-button-mobile sm:invisible">
-                      DEVM
+                      DEV MOBILE
                       <p className="mobile"> help for developers </p>
                     </span>
                   </div>
@@ -135,6 +136,7 @@ export default function Home() {
             </span>
           </footer>
         </div>
+        */}
       </>
     </>
   );
