@@ -2,7 +2,7 @@ export default function Page() {
   return (
     <div className="wrapper w-screen h-screen">
       <header>
-        <div className="logo">
+        <div className="logo font-lily">
           <span className="text-secondary port"> PORT </span>
           <span className="text-secondary io"> io </span>
           <span className="text-funny fun"> Fun </span>
