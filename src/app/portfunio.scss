@@ -14,7 +14,6 @@ body {
 .item-wrapper {
   display: flex;
   flex-direction: row;
-  font-family: $font-khand;
   font-size: 40px;
   font-weight: 400;
   line-height: 61,16px;
@@ -24,7 +23,6 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: end;
-  font-family: $font-khand;
   font-size: 16px;
   font-weight: 400;
   line-height: 61,16px;
@@ -58,7 +56,7 @@ body {
     line-height: 36px;
     letter-spacing: 0em;
     font-size: 24px;
-    font-family:$font-khand;
+
     color: #37193B80;
     }
   }
@@ -122,9 +120,6 @@ footer {
   border-color: transparent;
   border-radius: $radius;
   box-shadow: 0px 0px 0px 2px transparent;
-  display:flex;
-  align-items: flex-end;
-  font-family: $font-khand;
   font-size: 36px;
   color: #37193b;
 
@@ -134,6 +129,7 @@ footer {
     &.primary {
       background-color: $primary-light;
       box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.35);
+      
     }
 
     &.success {
@@ -150,9 +146,9 @@ footer {
       background-color: $danger-dark;
       box-shadow: 0px 0px 0px 2px rgba(0, 0, 0, 0.35);
     }
-    .icon {
-        animation: pulseAnimation 1s infinite alternate;
-      }
+    &.icon {
+    animation: pulseAnimation 2s infinite alternate;
+    }
   }
 }
 
@@ -160,11 +156,8 @@ footer {
 align-self: center;
 
 }
-.action-button-mobile{
-  font-family: $font-khand;
-}
+
 .item-box{
-  font-family: $font-khand;
   font-weight: 400;
   font-size: 20px;
   line-height: 30.58px;
