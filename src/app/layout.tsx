@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto_Slab, Khand, Lily_Script_One } from "next/font/google";
+import { Khand, Lily_Script_One, Roboto_Slab } from "next/font/google";
 import "./globals.scss";
 import "./portfunio.scss";
 
@@ -30,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      className={`${khand.variable} ${roboto.variable} ${lily.variable}`}
+      className={`${khand.variable} ${roboto.variable} ${lily.variable} text-slate-200`}
       lang="pt-br"
     >
       <body className="font-l">{children}</body>
