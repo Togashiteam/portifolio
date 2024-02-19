@@ -1,8 +1,8 @@
     @keyframes pulseAnimation{
-from { transform: scale(0.858); }
-to { transform: scale(1.0); }
+from { transform: scale(0.850); }
+to { transform: scale(1.2); }
 }
 
-.flash {
+.pulse {
 animation: flash 500ms ease infinite alternate;
 }
