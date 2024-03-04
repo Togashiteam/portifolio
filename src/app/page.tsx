@@ -1,5 +1,4 @@
 import Icon from "@/components/Icon";
-import BouncyIcon from "../components/bouncyButton";
 import IMCCalculator from "../app/imc/page";
 
 export default function Page() {

@@ -1,7 +1,11 @@
+import IMCCalculator from "../imc/page";
+
 export default function Style() {
   return (
     <>
-      <h1>Style works</h1>
+      <h1>
+        <IMCCalculator />
+      </h1>
     </>
   );
 }
