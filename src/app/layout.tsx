@@ -30,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      className={`${khand.variable} ${roboto.variable} ${lily.variable}`}
+      className={`${khand.variable} ${roboto.variable} ${lily.variable} text-slate-200`}
       lang="pt-br"
     >
       <body className="font-l">{children}</body>
