@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Khand, Lily_Script_One, Roboto_Slab } from "next/font/google";
+import { Roboto_Slab, Khand, Lily_Script_One } from "next/font/google";
 import "./globals.scss";
 import "./portfunio.scss";
 
