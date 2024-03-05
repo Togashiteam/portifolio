@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto_Slab, Khand } from "next/font/google";
+import { Roboto_Slab, Khand, Lily_Script_One } from "next/font/google";
 import "./globals.scss";
 import "./portfunio.scss";
 
@@ -11,6 +11,11 @@ const khand = Khand({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-family-khand",
+});
+const lily = Lily_Script_One({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-family-lily",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +29,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className={`${khand.variable} ${roboto.variable}`} lang="pt-br">
+    <html
+      className={`${khand.variable} ${roboto.variable} ${lily.variable}`}
+      lang="pt-br"
+    >
       <body className="font-l">{children}</body>
     </html>
   );

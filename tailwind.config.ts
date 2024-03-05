@@ -35,6 +35,7 @@ const config: Config = {
       fontFamily: {
         khand: ["var(--font-family-khand)"],
         roboto: ["var(--font-family-roboto)"],
+        lily: ["var(--font-family-lily)"],
       },
     },
   },
