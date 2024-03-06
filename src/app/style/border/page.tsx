@@ -1,7 +1,7 @@
 "use client";
-import { ChangeEvent, useState } from "react";
+import InputRange from "@/components/atoms/inputs/InputRange";
 import BorderEditable from "@/components/irregulars/Border";
-import InputRange from "@/components/inputs/InputRange";
+import { ChangeEvent, useState } from "react";
 
 export default function StyleBorder() {
   const [simpleValues, setSimpleValues] = useState<boolean>(true);
