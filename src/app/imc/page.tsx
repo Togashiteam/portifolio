@@ -10,31 +10,46 @@ const IMCCalculator: React.FC = () => {
     const weight = weightImcState;
     const height = heightImcState;
 
-    const weightNum = parseInt(weight);
-    const heightNum = parseInt(height);
+    const weightNum = parseFloat(weight.replace(",", "."));
+    const heightNum = parseFloat(height.replace(",", "."));
     if (weightNum > 0 && heightNum > 0) {
-      const heightInMeters = heightNum / 100; // Convertendo altura para metros
-      const result = weightNum / (heightInMeters * heightInMeters);
+      const result = weightNum / (heightNum * heightNum);
       setResultImcState(result.toFixed(2)); //Definindo o valor.
     }
   };
 
   const handleWeightKeyDown = (e: any) => {
-    setWeightImcState(e.currentTarget.value);
-  };
-  const handleHeightKeyDown = (e: any) => {
-    setHeightImcState(e.currentTarget.value);
+    const formattedweight = formatweight(e.currentTarget.value);
+    setWeightImcState(formattedweight);
   };
 
-  /* const handleHeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleHeightChange = (e: any) => {
     const formattedHeight = formatHeight(e.currentTarget.value);
     setHeightImcState(formattedHeight);
   };
 
-  const formatHeight = (text: string): string => {
-    return text.replace(/[^0-9,]/g, "");
-  }; Por que não está funcionando? Estava indo, mas o regex não vai
-*/
+  function formatHeight(text: string) {
+    let addComma = text.replace(/[\D]/g, ""); //Formato para altura
+    if (addComma.length > 1) {
+      const firstDec = addComma.substring(0, 1);
+      const lastDec = addComma.substring(1, addComma.length);
+      addComma = firstDec + "," + lastDec;
+    }
+    return addComma;
+  }
+
+  function formatweight(text: string) {
+    let numsAndCommas = text.replace(/^[,]|[^,\d]$/g, ""); //Formato para peso
+    const decPosition = numsAndCommas.indexOf(",");
+    const lastDecPosition = numsAndCommas.lastIndexOf(",");
+
+    if (decPosition == lastDecPosition) {
+      return numsAndCommas;
+    } else {
+      return numsAndCommas.substring(0, lastDecPosition);
+    }
+  }
+
   return (
     <>
       <div className="wrapper w-screen h-screen">
@@ -127,13 +142,13 @@ const IMCCalculator: React.FC = () => {
                   Peso (kg):{" "}
                 </label>
                 <input
-                  placeholder="Exemplo: 80"
                   autoFocus
                   className="w-96 h-11 border border-dark-700"
                   type="text"
                   id="weight"
                   value={weightImcState}
                   onChange={handleWeightKeyDown}
+                  placeholder=" 80,500 "
                 />
               </div>
               <div className="grid">
@@ -143,8 +158,8 @@ const IMCCalculator: React.FC = () => {
                   type="text"
                   id="height"
                   value={heightImcState}
-                  onChange={handleHeightKeyDown}
-                  placeholder="Exemplo: 175"
+                  onChange={handleHeightChange}
+                  placeholder=" 1,75"
                 />
               </div>
               <button
