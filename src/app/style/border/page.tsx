@@ -1,6 +1,6 @@
 "use client";
 import { ChangeEvent, useState } from "react";
-import BorderEditable from "@/components/irregulars/Border";
+import BorderEditable from "@/components/irregulars/border";
 import InputRange from "@/components/inputs/InputRange";
 
 export default function StyleBorder() {
@@ -8,19 +8,24 @@ export default function StyleBorder() {
 
   const [borderWidthValue, setBorderWidthValue] = useState<string>("1");
   const [borderTopWidthValue, setBorderTopWidthValue] = useState<string>("0");
-  const [borderRightWidthValue, setBorderRightWidthValue] = useState<string>("0");
-  const [borderBottomWidthValue, setBorderBottomWidthValue] = useState<string>("0");
+  const [borderRightWidthValue, setBorderRightWidthValue] =
+    useState<string>("0");
+  const [borderBottomWidthValue, setBorderBottomWidthValue] =
+    useState<string>("0");
   const [borderLeftWidthValue, setBorderLeftWidthValue] = useState<string>("0");
-
 
   const [borderColorValue, setBorderColorValue] = useState<string>("#000000");
   const [borderStyleValue, setBorderStyleValue] = useState<string>("solid");
   const [borderRadiusValue, setBorderRadiusValue] = useState<string>("0");
 
-  const setSimpleValue = (e: ChangeEvent<HTMLInputElement>) => setSimpleValues(e.currentTarget.checked);
-  const setBorderColor = (e: ChangeEvent<HTMLInputElement>) => setBorderColorValue(e.currentTarget.value);
-  const setBorderStyle = (e: ChangeEvent<HTMLSelectElement>) => setBorderStyleValue(e.currentTarget.value);
-  const setBorderRadius = (e: ChangeEvent<HTMLInputElement>) => setBorderRadiusValue(e.currentTarget.value);
+  const setSimpleValue = (e: ChangeEvent<HTMLInputElement>) =>
+    setSimpleValues(e.currentTarget.checked);
+  const setBorderColor = (e: ChangeEvent<HTMLInputElement>) =>
+    setBorderColorValue(e.currentTarget.value);
+  const setBorderStyle = (e: ChangeEvent<HTMLSelectElement>) =>
+    setBorderStyleValue(e.currentTarget.value);
+  const setBorderRadius = (e: ChangeEvent<HTMLInputElement>) =>
+    setBorderRadiusValue(e.currentTarget.value);
 
   return (
     <>
