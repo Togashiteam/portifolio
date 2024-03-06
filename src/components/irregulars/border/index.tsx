@@ -10,7 +10,7 @@ export default function BorderEditable(obj: IBorderStyle) {
 
   console.clear();
     if (border.isSimpleValue) {
-      style["borderWidth"] = `${border.borderWidth}px`
+      style["borderWidth"] = `${border.borderWidth}px`;
     } else {
       style["borderTopWidth"] = `${border.borderTopWidth}px`;
       style["borderRightWidth"] = `${border.borderRightWidth}px`;
@@ -22,7 +22,7 @@ export default function BorderEditable(obj: IBorderStyle) {
     style['borderStyle'] = (`${border.borderStyle}`);
     style['borderRadius'] = (`${border.borderRadius}px`);
 
-    console.log("🚀 ~ style:", style)
+    console.log("🚀 ~ style:", style);
 
   return (
     <>
