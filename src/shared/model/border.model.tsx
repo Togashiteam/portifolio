@@ -23,51 +23,27 @@ export class BorderStyle implements IBorderStyle {
 
   constructor(obj?: IBorderStyle) {
     if (obj) {
-      this.isSimpleValue = obj.isSimpleValue;
+      this.isSimpleValue = obj.isSimpleValue
       this.borderWidth = obj.borderWidth;
       this.borderTopWidth = obj.borderTopWidth;
       this.borderRightWidth = obj.borderRightWidth;
       this.borderBottomWidth = obj.borderBottomWidth;
       this.borderLeftWidth = obj.borderLeftWidth;
       this.borderColor = obj.borderColor;
-      this.borderTopColor = obj.borderColor
-        ? obj.borderColor
-        : obj.borderTopColor;
-      this.borderRightColor = obj.borderColor
-        ? obj.borderColor
-        : obj.borderRightColor;
-      this.borderBottomColor = obj.borderColor
-        ? obj.borderColor
-        : obj.borderBottomColor;
-      this.borderLeftColor = obj.borderColor
-        ? obj.borderColor
-        : obj.borderLeftColor;
+      this.borderTopColor = obj.borderTopColor;
+      this.borderRightColor = obj.borderRightColor;
+      this.borderBottomColor = obj.borderBottomColor;
+      this.borderLeftColor = obj.borderLeftColor;
       this.borderStyle = obj.borderStyle;
-      this.borderTopStyle = obj.borderStyle
-        ? obj.borderStyle
-        : obj.borderTopStyle;
-      this.borderRightStyle = obj.borderStyle
-        ? obj.borderStyle
-        : obj.borderRightStyle;
-      this.borderBottomStyle = obj.borderStyle
-        ? obj.borderStyle
-        : obj.borderBottomStyle;
-      this.borderLeftStyle = obj.borderStyle
-        ? obj.borderStyle
-        : obj.borderLeftStyle;
+      this.borderTopStyle = obj.borderTopStyle;
+      this.borderRightStyle = obj.borderRightStyle;
+      this.borderBottomStyle = obj.borderBottomStyle;
+      this.borderLeftStyle = obj.borderLeftStyle;
       this.borderRadius = obj.borderRadius;
-      this.borderTopLeftRadius = obj.borderRadius
-        ? obj.borderRadius
-        : obj.borderTopLeftRadius;
-      this.borderTopRightRadius = obj.borderRadius
-        ? obj.borderRadius
-        : obj.borderTopRightRadius;
-      this.borderBottomRightRadius = obj.borderRadius
-        ? obj.borderRadius
-        : obj.borderBottomRightRadius;
-      this.borderBottomLefttRadius = obj.borderRadius
-        ? obj.borderRadius
-        : obj.borderBottomLefttRadius;
+      this.borderTopLeftRadius = obj.borderTopLeftRadius;
+      this.borderTopRightRadius = obj.borderTopRightRadius;
+      this.borderBottomRightRadius = obj.borderBottomRightRadius;
+      this.borderBottomLefttRadius = obj.borderBottomLefttRadius;
     }
   }
 }
