@@ -1,5 +1,4 @@
 import Icon from "@/components/Icon";
-import IMCCalculator from "../app/imc/page";
 
 export default function Page() {
   return (
