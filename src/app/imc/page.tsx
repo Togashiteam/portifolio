@@ -1,58 +1,27 @@
-"use client";
-import React, { useState } from "react";
+"use client"
 
-const IMCCalculator: React.FC = () => {
+import { useState } from "react";
+
+export default function Imc() {
   const [weightImcState, setWeightImcState] = useState("");
   const [heightImcState, setHeightImcState] = useState("");
   const [resultImcState, setResultImcState] = useState("");
 
-  const calculateIMC = () => {
-    const weight = weightImcState;
-    const height = heightImcState;
-
+  const calculateIMC = (weight: string, height: string) => {
     const weightNum = parseFloat(weight.replace(",", "."));
     const heightNum = parseFloat(height.replace(",", "."));
+
     if (weightNum > 0 && heightNum > 0) {
       const result = weightNum / (heightNum * heightNum);
       setResultImcState(result.toFixed(2)); //Definindo o valor.
     }
   };
 
-  const handleWeightKeyDown = (e: any) => {
-    const formattedweight = formatweight(e.currentTarget.value);
-    setWeightImcState(formattedweight);
-  };
 
-  const handleHeightChange = (e: any) => {
-    const formattedHeight = formatHeight(e.currentTarget.value);
-    setHeightImcState(formattedHeight);
-  };
-
-  function formatHeight(text: string) {
-    let addComma = text.replace(/[\D]/g, ""); //Formato para altura
-    if (addComma.length > 1) {
-      const firstDec = addComma.substring(0, 1);
-      const lastDec = addComma.substring(1, addComma.length);
-      addComma = firstDec + "," + lastDec;
-    }
-    return addComma;
-  }
-
-  function formatweight(text: string) {
-    let numsAndCommas = text.replace(/^[,]|[^,\d]$/g, ""); //Formato para peso
-    const decPosition = numsAndCommas.indexOf(",");
-    const lastDecPosition = numsAndCommas.lastIndexOf(",");
-
-    if (decPosition == lastDecPosition) {
-      return numsAndCommas;
-    } else {
-      return numsAndCommas.substring(0, lastDecPosition);
-    }
-  }
 
   return (
     <>
-      <div className="wrapper w-screen h-screen">
+      <div className="wrapper w-screen h-screen flex flex-col justify-between bg-primary-400">
         <header>
           <div className="logo">
             <div className="text-secondary port"> PORT </div>
@@ -60,7 +29,7 @@ const IMCCalculator: React.FC = () => {
             <div className="text-funny fun"> Fun </div>
           </div>
         </header>
-        <div className="grid justify-center bg-primary-400">
+        <div className="grid justify-center ">
           <div className="flex justify-center">
             <a href="./">
               <h2 className="flex box-border justify-center items-center rounded-lg w-36 h-16 bg-danger-700 shadow-sm hover:shadow-danger-400">
@@ -81,7 +50,7 @@ const IMCCalculator: React.FC = () => {
               <p
                 className={
                   parseFloat(resultImcState) > 17 &&
-                  parseFloat(resultImcState) < 18.49
+                    parseFloat(resultImcState) < 18.49
                     ? "text-danger-300"
                     : ""
                 }
@@ -91,7 +60,7 @@ const IMCCalculator: React.FC = () => {
               <p
                 className={
                   parseFloat(resultImcState) > 18.5 &&
-                  parseFloat(resultImcState) < 24.99
+                    parseFloat(resultImcState) < 24.99
                     ? "text-danger-300"
                     : ""
                 }
@@ -101,7 +70,7 @@ const IMCCalculator: React.FC = () => {
               <p
                 className={
                   parseFloat(resultImcState) > 25 &&
-                  parseFloat(resultImcState) < 29.99
+                    parseFloat(resultImcState) < 29.99
                     ? "text-danger-300"
                     : ""
                 }
@@ -111,7 +80,7 @@ const IMCCalculator: React.FC = () => {
               <p
                 className={
                   parseFloat(resultImcState) > 30 &&
-                  parseFloat(resultImcState) < 34.99
+                    parseFloat(resultImcState) < 34.99
                     ? "text-danger-300"
                     : ""
                 }
@@ -121,7 +90,7 @@ const IMCCalculator: React.FC = () => {
               <p
                 className={
                   parseFloat(resultImcState) > 35 &&
-                  parseFloat(resultImcState) < 39.99
+                    parseFloat(resultImcState) < 39.99
                     ? "text-danger-300"
                     : ""
                 }
@@ -143,28 +112,41 @@ const IMCCalculator: React.FC = () => {
                 </label>
                 <input
                   autoFocus
-                  className="w-96 h-11 border border-dark-700"
-                  type="text"
+                  className="
+                  [appearance:textfield]
+                  [&::-webkit-outer-spin-button]:appearance-none
+                  [&::-webkit-inner-spin-button]:appearance-none
+                  w-96
+                  h-11
+                  border
+                  border-dark-700"
+                  type="number"
                   id="weight"
                   value={weightImcState}
-                  onChange={handleWeightKeyDown}
+                  onChange={e => setWeightImcState(e.currentTarget.value)}
                   placeholder=" 80,500 "
                 />
               </div>
               <div className="grid">
                 <label htmlFor="height">Altura (cm): </label>
                 <input
-                  className="w-96 h-11 border border-dark-400"
-                  type="text"
+                  className="imc-input
+                  [appearance:textfield]
+                  [&::-webkit-outer-spin-button]:appearance-none
+                  [&::-webkit-inner-spin-button]:appearance-none                
+                  w-96 
+                  h-11
+                  border border-dark-400"
+                  type="number"
                   id="height"
                   value={heightImcState}
-                  onChange={handleHeightChange}
+                  onChange={e => setHeightImcState(e.currentTarget.value)}
                   placeholder=" 1,75"
                 />
               </div>
               <button
                 className="w-96 h-11 p-1 m-3 rounded-lg border border-dark-700 transition ease-in-out delay-150 bg-success-700 hover:bg-success-400 duration-300"
-                onClick={calculateIMC}
+                onClick={() => calculateIMC(weightImcState, heightImcState)}
               >
                 Calcular
               </button>
@@ -181,17 +163,15 @@ const IMCCalculator: React.FC = () => {
               )}
             </div>
           </div>
-          <footer className="footer">
-            <div className="footer">
-              <div className="footer home">
-                @portfunio - All rights reserved - since 2024
-              </div>
-            </div>
-          </footer>
         </div>
+        <footer className="footer">
+          <div className="footer">
+            <div className="footer home">
+              @portfunio - All rights reserved - since 2024
+            </div>
+          </div>
+        </footer>
       </div>
     </>
-  );
-};
-
-export default IMCCalculator;
+  )
+}
