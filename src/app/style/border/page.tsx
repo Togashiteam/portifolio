@@ -2,6 +2,7 @@
 import InputCheckbox from "@/components/atoms/inputs/InputCheckbox";
 import InputColor from "@/components/atoms/inputs/InputColor";
 import InputRange from "@/components/atoms/inputs/InputRange";
+import InputSwitch from "@/components/atoms/inputs/InputSwitch";
 import SelectOptions, { StylesConst } from "@/components/atoms/inputs/SelectOptions";
 import BorderEditable from "@/components/irregulars/Border";
 import { ChangeEvent, useState } from "react";
@@ -39,12 +40,14 @@ export default function StyleBorder() {
         <div className="md:col-span-1">
           <div className="formulario bg-white p-5 overflow-x-clip">
             <div className="simple-value-wrapper">
-            <InputCheckbox
-              label="Show Complex Values"
-              checkboxValue={simpleValues}
-              setCheckboxValue={setSimpleValues}
+            <InputSwitch
+              label="More details"
+              switchValue={simpleValues}
+              setSwitchValue={setSimpleValues}
+              labelTrue="Simple"
+              labelFalse="Complex"
               defaultValue={simpleValues || false}
-            ></InputCheckbox>
+            ></InputSwitch>
           </div>
 
             {/* BORDER WIDTH */}

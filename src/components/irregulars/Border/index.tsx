@@ -4,12 +4,9 @@ import "./border.scss";
 
 export default function BorderEditable(obj: IBorderStyle) {
   const border = new BorderStyle(obj);
-
-  // TODO: WIP - Criar Interface
   const style: any = {};
 
   console.clear();
-  console.log(border);
     if (border.isSimpleValue) {
       style["borderWidth"] = `${border.borderWidth}px`
       style['borderStyle'] = (`${border.borderStyle}`);
@@ -38,14 +35,10 @@ export default function BorderEditable(obj: IBorderStyle) {
       style['borderBottomRightRadius'] = (`${border.borderBottomRightRadius}px`);
     }
 
-
-
-
-
   return (
     <>
       <div
-        className="border-editable p-20 w-4/5 mx-auto"
+        className="border-editable p-20 w-3/4 mx-auto"
         style={style}
       ></div>
     </>
