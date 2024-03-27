@@ -1,4 +1,5 @@
 "use client";
+import InputCheckbox from "@/components/atoms/inputs/InputCheckbox";
 import InputColor from "@/components/atoms/inputs/InputColor";
 import InputRange from "@/components/atoms/inputs/InputRange";
 import SelectOptions, { StylesConst } from "@/components/atoms/inputs/SelectOptions";
@@ -32,29 +33,19 @@ export default function StyleBorder() {
   const [borderBottomLeftRadiusValue, setBorderBottomLeftRadiusValue] = useState<string>("0");
   const [borderBottomRightRadiusValue, setBorderBottomRightRadiusValue] = useState<string>("0");
 
-  const setSimpleValue = (e: ChangeEvent<HTMLInputElement>) => setSimpleValues(e.currentTarget.checked);
-  const setBorderRadius = (e: ChangeEvent<HTMLInputElement>) => setBorderRadiusValue(e.currentTarget.value);
-
   return (
     <>
       <div className="mb-5 md:mb-0 md:grid md:grid-cols-3 md:gap-8 h-screen">
         <div className="md:col-span-1">
           <div className="formulario bg-white p-5 overflow-x-clip">
-            <label
-              htmlFor="simpleValuesCheckBox"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Show Simple Values
-            </label>
-            <div className="mt-2">
-              <input
-                id="simpleValuesCheckBox"
-                className="input checkbox"
-                type="checkbox"
-                onChange={setSimpleValue}
-                checked={simpleValues}
-              />
-            </div>
+            <div className="simple-value-wrapper">
+            <InputCheckbox
+              label="Show Complex Values"
+              checkboxValue={simpleValues}
+              setCheckboxValue={setSimpleValues}
+              defaultValue={simpleValues || false}
+            ></InputCheckbox>
+          </div>
 
             {/* BORDER WIDTH */}
             {simpleValues && (
@@ -359,7 +350,7 @@ export default function StyleBorder() {
                     </p>
                   </>
                 )}
-            </pre>
+             </pre>
             </fieldset>
 
           </div>
