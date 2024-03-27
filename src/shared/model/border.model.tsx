@@ -19,7 +19,7 @@ export class BorderStyle implements IBorderStyle {
   borderTopLeftRadius: string = "0";
   borderTopRightRadius: string = "0";
   borderBottomRightRadius: string = "0";
-  borderBottomLefttRadius: string = "0";
+  borderBottomLeftRadius: string = "0";
 
   constructor(obj?: IBorderStyle) {
     if (obj) {
@@ -43,7 +43,7 @@ export class BorderStyle implements IBorderStyle {
       this.borderTopLeftRadius = obj.borderTopLeftRadius;
       this.borderTopRightRadius = obj.borderTopRightRadius;
       this.borderBottomRightRadius = obj.borderBottomRightRadius;
-      this.borderBottomLefttRadius = obj.borderBottomLefttRadius;
+      this.borderBottomLeftRadius = obj.borderBottomLeftRadius;
     }
   }
 }
@@ -69,5 +69,5 @@ export interface IBorderStyle {
   borderTopLeftRadius: string;
   borderTopRightRadius: string;
   borderBottomRightRadius: string;
-  borderBottomLefttRadius: string;
+  borderBottomLeftRadius: string;
 }

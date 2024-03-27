@@ -14,6 +14,7 @@ export default function BorderEditable(obj: IBorderStyle) {
       style["borderWidth"] = `${border.borderWidth}px`
       style['borderStyle'] = (`${border.borderStyle}`);
       style['borderColor'] = (`${border.borderColor}`);
+      style['borderRadius'] = (`${border.borderRadius}px`);
     } else {
       style["borderTopWidth"] = `${border.borderTopWidth}px`;
       style["borderRightWidth"] = `${border.borderRightWidth}px`;
@@ -30,11 +31,16 @@ export default function BorderEditable(obj: IBorderStyle) {
       style['borderRightColor'] = (`${border.borderRightColor}`);
       style['borderBottomColor'] = (`${border.borderBottomColor}`);
       style['borderLeftColor'] = (`${border.borderLeftColor}`);
+
+      style['borderTopLeftRadius'] = (`${border.borderTopLeftRadius}px`);
+      style['borderTopRightRadius'] = (`${border.borderTopRightRadius}px`);
+      style['borderBottomLeftRadius'] = (`${border.borderBottomLeftRadius}px`);
+      style['borderBottomRightRadius'] = (`${border.borderBottomRightRadius}px`);
     }
 
 
 
-    style['borderRadius'] = (`${border.borderRadius}px`);
+
 
   return (
     <>

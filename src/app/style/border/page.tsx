@@ -27,6 +27,10 @@ export default function StyleBorder() {
   const [borderLeftColorValue, setBorderLeftColorValue] = useState<string>("#000000");
 
   const [borderRadiusValue, setBorderRadiusValue] = useState<string>("0");
+  const [borderTopLeftRadiusValue, setBorderTopLeftRadiusValue] = useState<string>("0");
+  const [borderTopRightRadiusValue, setBorderTopRightRadiusValue] = useState<string>("0");
+  const [borderBottomLeftRadiusValue, setBorderBottomLeftRadiusValue] = useState<string>("0");
+  const [borderBottomRightRadiusValue, setBorderBottomRightRadiusValue] = useState<string>("0");
 
   const setSimpleValue = (e: ChangeEvent<HTMLInputElement>) => setSimpleValues(e.currentTarget.checked);
   const setBorderRadius = (e: ChangeEvent<HTMLInputElement>) => setBorderRadiusValue(e.currentTarget.value);
@@ -207,43 +211,55 @@ export default function StyleBorder() {
             {/* BORDER RADIUS */}
             {simpleValues && (
               <div className="border-radius-wrapper">
-                <label
-                  htmlFor="borderRadius"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Border Radius
-                </label>
-                <div className="mt-2 flex flex-row ">
-                  <input
-                    id="borderRadius"
-                    className="input range"
-                    type="range"
-                    min={0}
-                    max={255}
-                    onChange={setBorderRadius}
-                    value={borderRadiusValue ? borderRadiusValue : "0"}
-                  />
-                  <input
-                    className="input number"
-                    type="number"
-                    min={0}
-                    max={255}
-                    onChange={setBorderRadius}
-                    value={borderRadiusValue ? borderRadiusValue : "0"}
-                  />
-                </div>
+                <InputRange
+                  label={"Border Radius"}
+                  rangeValue={borderRadiusValue}
+                  setRangeValue={setBorderRadiusValue}
+                  defaultValue={borderRadiusValue || '0'}
+                ></InputRange>
               </div>
             )}
             {!simpleValues && (
               <div className="multiple-border-radius-wrapper">
-                <h1> Multiple Radius </h1>
+                <div className="border-radius-wrapper">
+                  <InputRange
+                    label={"Border Top Left Radius"}
+                    rangeValue={borderTopLeftRadiusValue}
+                    setRangeValue={setBorderTopLeftRadiusValue}
+                    defaultValue={borderTopLeftRadiusValue || '0'}
+                  ></InputRange>
+                </div>
+                <div className="border-radius-wrapper">
+                  <InputRange
+                    label={"Border Top Right Radius"}
+                    rangeValue={borderTopRightRadiusValue}
+                    setRangeValue={setBorderTopRightRadiusValue}
+                    defaultValue={borderTopRightRadiusValue || '0'}
+                  ></InputRange>
+                </div>
+                <div className="border-radius-wrapper">
+                  <InputRange
+                    label={"Border Bottom Left Radius"}
+                    rangeValue={borderBottomLeftRadiusValue}
+                    setRangeValue={setBorderBottomLeftRadiusValue}
+                    defaultValue={borderBottomLeftRadiusValue || '0'}
+                  ></InputRange>
+                </div>
+                <div className="border-radius-wrapper">
+                  <InputRange
+                    label={"Border Bottom Right Radius"}
+                    rangeValue={borderBottomRightRadiusValue}
+                    setRangeValue={setBorderBottomRightRadiusValue}
+                    defaultValue={borderBottomRightRadiusValue || '0'}
+                  ></InputRange>
+                </div>
               </div>
             )}
           </div>
         </div>
 
         <div className="md:col-span-2 h-full">
-          <div className="border-editable bg-white p-5 overflow-x-clip h-full">
+          <div className="border-editable bg-white p-5 overflow-x-clip">
             <BorderEditable
               isSimpleValue={simpleValues}
               borderWidth={borderWidthValue}
@@ -262,11 +278,90 @@ export default function StyleBorder() {
               borderRightColor={borderRightColorValue}
               borderBottomColor={borderBottomColorValue}
               borderLeftColor={borderLeftColorValue}
-              borderTopLeftRadius={""}
-              borderTopRightRadius={""}
-              borderBottomLefttRadius={""}
-              borderBottomRightRadius={""}
+              borderTopLeftRadius={borderTopLeftRadiusValue}
+              borderTopRightRadius={borderTopRightRadiusValue}
+              borderBottomLeftRadius={borderBottomLeftRadiusValue}
+              borderBottomRightRadius={borderBottomRightRadiusValue}
             />
+          </div>
+
+          <div className="border-editable bg-white p-5 overflow-x-clip h-full">
+            <fieldset>
+              <pre>
+                {simpleValues && (
+                  <>
+                    <p>
+                      border-width: {borderWidthValue} px;
+                    </p>
+                    <p>
+                      border-style: {borderStyleValue};
+                    </p>
+                    <p>
+                      border-color: {borderColorValue};
+                    </p>
+                    <p>
+                      border-radius: {borderRadiusValue};
+                    </p>
+                  </>
+                )}
+                {!simpleValues && (
+                  <>
+                    <p>
+                      border-top-width: {borderTopWidthValue} px;
+                    </p>
+                    <p>
+                      border-right-width: {borderRightWidthValue} px;
+                    </p>
+                    <p>
+                      border-bottom-width: {borderBottomWidthValue} px;
+                    </p>
+                    <p>
+                      border-left-width: {borderLeftWidthValue} px;
+                    </p>
+
+                    <p>
+                      border-top-style: {borderTopStyleValue};
+                    </p>
+                    <p>
+                      border-right-style: {borderRightStyleValue};
+                    </p>
+                    <p>
+                      border-bottom-style: {borderBottomStyleValue};
+                    </p>
+                    <p>
+                      border-left-style: {borderLeftStyleValue};
+                    </p>
+
+                    <p>
+                      border-top-color: {borderTopColorValue};
+                    </p>
+                    <p>
+                      border-right-color: {borderRightColorValue};
+                    </p>
+                    <p>
+                      border-bottom-color: {borderBottomColorValue};
+                    </p>
+                    <p>
+                      border-left-color: {borderLeftColorValue};
+                    </p>
+
+                    <p>
+                      border-top-left-radius: {borderTopLeftRadiusValue};
+                    </p>
+                    <p>
+                      border-top-right-radius: {borderTopRightRadiusValue};
+                    </p>
+                    <p>
+                      border-bottom-right-radius: {borderBottomRightRadiusValue};
+                    </p>
+                    <p>
+                      border-bottom-left-radius: {borderBottomLeftRadiusValue};
+                    </p>
+                  </>
+                )}
+            </pre>
+            </fieldset>
+
           </div>
         </div>
       </div>
