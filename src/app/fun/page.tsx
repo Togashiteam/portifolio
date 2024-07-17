@@ -4,6 +4,7 @@ export default function Fun() {
   return (
     <>
       <Link href={"../"}>Home</Link>
+      <br />
       <h1>Fun</h1>
       <br />
       <ul>
