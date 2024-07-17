@@ -1,4 +1,5 @@
 "use client";
+import AlertComponent from "@/components/atoms/Alert";
 import InputCheckbox from "@/components/atoms/inputs/InputCheckbox";
 import InputColor from "@/components/atoms/inputs/InputColor";
 import InputRange from "@/components/atoms/inputs/InputRange";
@@ -34,8 +35,26 @@ export default function StyleBorder() {
   const [borderBottomLeftRadiusValue, setBorderBottomLeftRadiusValue] = useState<string>("0");
   const [borderBottomRightRadiusValue, setBorderBottomRightRadiusValue] = useState<string>("0");
 
+  const [showCopyAlert, setShowCopyAlert] = useState(false);
+  const [styleGenerated, setStyleGenerated] = useState<string>();
+
+  const copyGeneratedCode = () => {
+    styleGenerated && navigator.clipboard.writeText(styleGenerated);
+    setShowCopyAlert(true);
+    setTimeout(() => {
+      setShowCopyAlert(false);
+    }, 2000);
+  };
+
+  const getFormattedStyle = () => {
+
+  }
+
   return (
     <>
+      {showCopyAlert && (
+        <AlertComponent text="Código copiado para a área de transferência!" />
+      )}
       <div className="mb-5 md:mb-0 md:grid md:grid-cols-3 md:gap-8 h-screen">
         <div className="md:col-span-1">
           <div className="formulario bg-white p-5 overflow-x-clip">
@@ -280,6 +299,9 @@ export default function StyleBorder() {
           </div>
 
           <div className="border-editable bg-white p-5 overflow-x-clip h-full">
+            <textarea name="" id="">
+              {styleGenerated}
+            </textarea>
             <fieldset>
               <pre>
                 {simpleValues && (
@@ -355,6 +377,13 @@ export default function StyleBorder() {
                 )}
              </pre>
             </fieldset>
+
+            <button
+              className="bg-primary-700 text-success-300 rounded-full w-40 p-2 mt-4"
+              onClick={copyGeneratedCode}
+            >
+              Copiar Código
+            </button>
 
           </div>
         </div>
