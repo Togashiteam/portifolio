@@ -1,8 +1,21 @@
+import Link from "next/link";
 
 export default function Style() {
   return (
     <>
-      <h1>Style works</h1>
+      <Link href={"../"}>
+        Home
+      </Link>
+
+      <h1>Style</h1>
+      <br />
+      <ul>
+        <li>
+          <Link href="style/border">
+            Border Style CSS
+          </Link>
+        </li>
+      </ul>
     </>
   );
 }
