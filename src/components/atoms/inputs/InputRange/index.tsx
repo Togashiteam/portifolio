@@ -3,17 +3,17 @@ import { ChangeEvent, useEffect, useState } from "react";
 
 interface InputRangeInterface {
   label: string;
-  borderWidth: string;
+  rangeValue: string;
   defaultValue: string;
-  setBorderWidth: (e: string) => void;
+  setRangeValue: (e: string) => void;
 }
 
 export default function InputRange(props: InputRangeInterface) {
 
-  const [borderWidthValueChild, setBorderWidthValueChild] = useState<string>(props.defaultValue);
-  const setBorderWidth = (e: ChangeEvent<HTMLInputElement>) => {
-    setBorderWidthValueChild(e.currentTarget.value);
-    props.setBorderWidth(e.currentTarget.value);
+  const [rangeValueChild, setRangeValueChild] = useState<string>(props.defaultValue);
+  const setRangeValue = (e: ChangeEvent<HTMLInputElement>) => {
+    setRangeValueChild(e.currentTarget.value);
+    props.setRangeValue(e.currentTarget.value);
   };
 
 return (
@@ -31,16 +31,16 @@ return (
         type="range"
         min={0}
         max={255}
-        onChange={setBorderWidth}
-        value={borderWidthValueChild}
+        onChange={setRangeValue}
+        value={rangeValueChild}
       />
       <input
         className="input number"
         type="number"
         min={0}
         max={255}
-        onChange={setBorderWidth}
-        value={borderWidthValueChild}
+        onChange={setRangeValue}
+        value={rangeValueChild}
       />
     </div>
   </>
