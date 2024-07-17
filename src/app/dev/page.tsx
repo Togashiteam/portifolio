@@ -1,4 +1,3 @@
-import IMCCalculator from "../fun/imc/page";
 
 export default function Dev() {
   return (

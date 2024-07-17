@@ -37,7 +37,7 @@ export default function Page() {
               </div>
             </div>
             <div className="item-wrapper">
-              <a href="./border">
+              <a href="./fun">
                 <div className="action-button success flex w-80 sm:w-36 h-36 space-x-4 m-4 flex-wrap place-content-around sm:flex-col-reverse">
                   <div className="action-button-mobile flex gap-x-20 sm:gap-x-4">
                     FUN
@@ -58,7 +58,7 @@ export default function Page() {
               </div>
             </div>
             <div className="item-wrapper">
-              <a href="./imc">
+              <a href="./dev">
                 <div className="action-button alert flex w-80 sm:w-36 h-36 space-x-4 m-4 flex-wrap place-content-around sm:flex-col-reverse">
                   <div className="action-button-mobile flex gap-x-20 sm:gap-x-4">
                     DEV
