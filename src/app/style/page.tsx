@@ -1,21 +1,23 @@
 import Link from "next/link";
 
-export default function Style() {
+export default function Dev() {
   return (
     <>
-      <Link href={"../"}>
-        Home
-      </Link>
-
-      <h1>Style</h1>
-      <br />
-      <ul>
-        <li>
-          <Link href="style/border">
-            Border Style CSS
-          </Link>
-        </li>
-      </ul>
+      <div className="flex justify-center mt-4 text-light-300  font-bold text-lg">
+        <Link href={"../"}>Home</Link>
+      </div>
+      <div className="flex justify-center items-center my-10 w-full h-10 bg-primary-300">
+        <div className="text-light-300 font-bold text-lg">
+          <h1>Style</h1>
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="flex justify-center items-center mx-2 w-48 h-40 bg-primary-300">
+          <div className="text-light-300 font-bold text-lg">
+            <Link href="style/border">Border Style CSS</Link>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
