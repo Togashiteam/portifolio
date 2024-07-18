@@ -29,6 +29,16 @@
   color: $text-dark;
 }
 
+.white {
+  background-color: #fff;
+  color: $text-dark;
+}
+
+.black {
+  background-color: #000;
+  color: $text-light;
+}
+
 /* .bg-primary */
 .bg {
   background-color: transparent;
@@ -54,6 +64,14 @@
 
   &-light {
     background-color: $light;
+  }
+
+  &-black {
+    background-color: #000;
+  }
+
+  &-white {
+    background-color: #fff;
   }
 }
 
