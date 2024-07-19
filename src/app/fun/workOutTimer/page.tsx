@@ -1,11 +1,14 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-import { SlOptions } from "react-icons/sl";
-import { MdOutlineHourglassTop } from "react-icons/md";
-import { TbHandStop } from "react-icons/tb";
+import React, { useEffect, useRef, useState } from "react";
 import { FaRunning } from "react-icons/fa";
 import { IoPlay } from "react-icons/io5";
+<<<<<<< HEAD
 import TimerHandler from "../workOutTimer/TimeHandler";
+=======
+import { MdOutlineHourglassTop } from "react-icons/md";
+import { SlOptions } from "react-icons/sl";
+import { TbHandStop } from "react-icons/tb";
+>>>>>>> origin/develop
 
 const CalculateWorkOutTimer: React.FC = () => {
   const [seconds, setSeconds] = useState<number>(0);
@@ -41,7 +44,7 @@ const CalculateWorkOutTimer: React.FC = () => {
       let extraSeconds = seconds % 60;
       secToMin = secToMin < 10 ? 0 + secToMin : secToMin;
       extraSeconds = extraSeconds < 10 ? extraSeconds : extraSeconds;
-      let totalMin = minutes + secToMin;
+      const totalMin = minutes + secToMin;
       setMinutes(totalMin);
       return setSeconds(extraSeconds), setMinutes(totalMin);
     }

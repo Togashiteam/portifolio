@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
-import { FaHandRock, FaHandPaper, FaHandScissors } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaHandPaper, FaHandRock, FaHandScissors } from "react-icons/fa";
 import { Rings } from "react-loading-icons";
 import GameResult from "./GameResult";
 const calculateRockPaperScissors: React.FC = () => {
