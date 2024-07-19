@@ -3,17 +3,6 @@ import Link from "next/link";
 export default function Dev() {
   return (
     <>
-<<<<<<< HEAD
-      <Link href={"../"}>Home</Link>
-      <br />
-      <h1>Dev</h1>
-      <br />
-      <ul>
-        <li>
-          <Link href="dev/fonts">Fonts</Link>
-        </li>
-      </ul>
-=======
       <div className="flex justify-center mt-4 text-light-300  font-bold text-lg">
         <Link href={"../"}>Home</Link>
       </div>
@@ -29,7 +18,6 @@ export default function Dev() {
           </div>
         </div>
       </div>
->>>>>>> origin/develop
     </>
   );
 }

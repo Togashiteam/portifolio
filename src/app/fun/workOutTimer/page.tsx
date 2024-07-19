@@ -2,13 +2,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaRunning } from "react-icons/fa";
 import { IoPlay } from "react-icons/io5";
-<<<<<<< HEAD
 import TimerHandler from "../workOutTimer/TimeHandler";
-=======
 import { MdOutlineHourglassTop } from "react-icons/md";
 import { SlOptions } from "react-icons/sl";
 import { TbHandStop } from "react-icons/tb";
->>>>>>> origin/develop
 
 const CalculateWorkOutTimer: React.FC = () => {
   const [seconds, setSeconds] = useState<number>(0);
