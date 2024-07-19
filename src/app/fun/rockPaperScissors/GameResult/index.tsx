@@ -2,20 +2,10 @@
 
 import { useState, useRef, useEffect } from "react";
 
-//animate__zoomIn Talvez esse pra victory animate.css site
-//animate__tada ou esse. src/app/rockPaperScissors/victoryScreen/page.tsx
 interface IGameResultProps {
   result: string;
   setShowGame: () => void;
 }
-
-/*
-
-usar a const handleShowGame = () => setShowGame(!showGame);
-
-Como manipular um valor de um component filho através do component pai.
-
-*/
 
 const GameResult = ({ result, setShowGame }: IGameResultProps) => {
   const winAudio = useRef<HTMLAudioElement>(null);

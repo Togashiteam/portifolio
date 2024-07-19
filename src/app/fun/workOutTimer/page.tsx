@@ -5,6 +5,7 @@ import { MdOutlineHourglassTop } from "react-icons/md";
 import { TbHandStop } from "react-icons/tb";
 import { FaRunning } from "react-icons/fa";
 import { IoPlay } from "react-icons/io5";
+import TimerHandler from "../workOutTimer/TimeHandler";
 
 const CalculateWorkOutTimer: React.FC = () => {
   const [seconds, setSeconds] = useState<number>(0);
