@@ -18,14 +18,17 @@ const CalculateWorkOutTimer: React.FC = () => {
   );
   const countUpSoundEffect = useRef<HTMLAudioElement>(null);
   const countDownSoundEffect = useRef<HTMLAudioElement>(null);
-  const [paused, setPaused] = useState(true);
-  const [closeOpen, setCloseOpen] = useState(true);
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
-  const handleClose = () => setCloseOpen(!closeOpen);
+  const [closeOpen, setCloseOpen] = useState(true);
+
+  const handleClose = () => {
+    setCloseOpen(!closeOpen);
+  };
   const handleOptionSelect = (option: string) => {
     setSelectedOption(option);
     handleCloseModal();
+    setIsModalOpen(true);
     handleClose();
   };
 
@@ -35,76 +38,114 @@ const CalculateWorkOutTimer: React.FC = () => {
     if (seconds >= 59 && selectedOption == "Countdown") {
       let secToMin = Math.floor(seconds / 60);
       let extraSeconds = seconds % 60;
+      secToMin = secToMin < 10 ? 0 + secToMin : secToMin;
+      extraSeconds = extraSeconds < 10 ? extraSeconds : extraSeconds;
       const totalMin = minutes + secToMin;
       setMinutes(totalMin);
-      setSeconds(extraSeconds);
+      return setSeconds(extraSeconds), setMinutes(totalMin);
     }
   };
 
   const handleReset = () => {
-    setIsActive(false);
-    setMinutes(0);
-    setSeconds(selectedOption === "Countdown" ? 0 : -3);
+    if (selectedOption == "Countdown") {
+      console.log("countdown active");
+      setIsActive(false);
+      setMinutes(0);
+      setSeconds(0);
+    } else if (selectedOption == "Count up") {
+      console.log("Count up active");
+      setIsActive(false);
+      setMinutes(0);
+      setSeconds(-3);
+    }
   };
-
   const handlePause = () => {
     setIsActive(false);
-    setPaused(false);
   };
 
   useEffect(() => {
+    if (seconds < 0 || minutes < 0) {
+    }
+  });
+
+  useEffect(() => {
     const setInitialTimeBasedOnOption = () => {
-      setMinutes(0);
-      setSeconds(selectedOption === "Count up" ? -3 : 0);
+      if (selectedOption == "Countdown") {
+        console.log("countdown");
+        setMinutes(0);
+        setSeconds(0);
+        console.log(seconds, minutes);
+        return { seconds, minutes };
+      }
+      if (selectedOption == "Count up") {
+        console.log("Count up");
+        setMinutes(0);
+        setSeconds(-3);
+        console.log(seconds, minutes);
+        return { seconds, minutes };
+      }
     };
     setInitialTimeBasedOnOption();
   }, [selectedOption]);
 
-  useEffect(() => {
-    if (isActive) {
+  React.useEffect(() => {
+    if (isActive && selectedOption === "Countdown") {
       const interval = setInterval(() => {
         setSeconds((prevSeconds: number) => {
-          if (selectedOption === "Countdown") {
-            if (prevSeconds === 0) {
-              if (minutes === 0) {
-                clearInterval(interval);
-                setIsActive(false);
-                return 0;
-              } else {
-                setMinutes((prevMinutes) => prevMinutes - 0.5);
-                return 59;
-              }
-            } else {
-              return prevSeconds - 1;
-            }
-          } else {
-            if (prevSeconds == 59) {
-              setMinutes((prevMinutes) => prevMinutes + 0.5);
+          if (prevSeconds === 0) {
+            if (minutes === 0) {
+              clearInterval(interval);
+              setIsActive(false);
               return 0;
             } else {
-              return prevSeconds + 1;
+              setMinutes((prevMinutes) => prevMinutes - 0.5);
+              return 59;
             }
+          } else {
+            return prevSeconds - 1;
+          }
+        });
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }
+  }, [isActive, selectedOption, minutes, seconds]);
+
+  React.useEffect(() => {
+    if (isActive && selectedOption == "Count up") {
+      const interval = setInterval(() => {
+        setSeconds((prevSeconds: number) => {
+          if (prevSeconds == 59) {
+            prevSeconds = 0;
+            setMinutes((prevMinutes: number) => {
+              return (prevMinutes += 0.5);
+            });
+            return 0;
+          }
+          {
+            return (prevSeconds += 1);
           }
         });
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [isActive, selectedOption, minutes, seconds]);
+  }, [isActive]);
 
   useEffect(() => {
-    if (seconds === -3 && isActive && selectedOption === "Count up") {
+    if (seconds == -3 && isActive && selectedOption == "Count up") {
       countUpSoundEffect.current?.play();
-    } else if (!isActive) {
+    }
+    if (!isActive) {
       countUpSoundEffect.current?.pause();
     }
     if (
-      selectedOption === "Countdown" &&
-      (seconds === 3 || seconds === 2 || seconds === 1) &&
+      selectedOption == "Countdown" &&
+      (seconds == 3 || seconds == 2 || seconds == 1) &&
       isActive
     ) {
       countDownSoundEffect.current?.play();
     }
-  }, [seconds, isActive, selectedOption]);
+  }, [seconds, isActive]);
 
   return (
     <>
@@ -150,6 +191,20 @@ const CalculateWorkOutTimer: React.FC = () => {
                   handleCloseModal={handleCloseModal}
                 />
               </div>
+
+              <div className="winner flex justify-center sm:justify-center text-success-300 text-4xl">
+                {!isActive && (
+                  <button
+                    className="w-84 h-14 p-1 m-3 flex-auto rounded-lg border border-dark-700 transition ease-in-out delay-150 bg-success-700 hover:bg-success-400 duration-300 text-light-300"
+                    onClick={handleTimer}
+                    disabled={isActive}
+                  >
+                    <div className="flex justify-center">
+                      PLAY! <IoPlay />
+                    </div>
+                  </button>
+                )}
+              </div>
               <div>
                 <TimerDisplay
                   minutes={minutes}
@@ -159,37 +214,25 @@ const CalculateWorkOutTimer: React.FC = () => {
                 />
               </div>
             </div>
-
-            <div className="winner flex justify-center sm:justify-center text-success-300 text-4xl">
-              {!isActive && (
-                <button
-                  className="w-84 h-14 p-1 m-3 flex-auto rounded-lg border border-dark-700 transition ease-in-out delay-150 bg-success-700 hover:bg-success-400 duration-300 text-light-300"
-                  onClick={handleTimer}
-                  disabled={isActive}
-                >
-                  <div className="flex justify-center">
-                    PLAY! <IoPlay />
-                  </div>
-                </button>
-              )}
-            </div>
-            <div className="footer">
-              <div className="footer home flex pl-32 visible sm:hidden">
-                @PORTFUN
-              </div>
-            </div>
           </div>
         </div>
       </div>
-      <footer className="footer">
+
+      <footer>
+        <div className="footer">
+          <div className="footer home flex pl-32 visible sm:hidden">
+            @PORTFUN
+          </div>
+        </div>
+
         <div className="footer home hidden sm:flex">
           @portfunio - All rights reserved - since 2024
         </div>
+        <AudioPlayer
+          countUpSoundEffect={countUpSoundEffect}
+          countDownSoundEffect={countDownSoundEffect}
+        />
       </footer>
-      <AudioPlayer
-        countUpSoundEffect={countUpSoundEffect}
-        countDownSoundEffect={countDownSoundEffect}
-      />
     </>
   );
 };
