@@ -33,12 +33,6 @@ const calculateRockPaperScissors: React.FC = () => {
     Object.values(rpsOptions)[Math.floor(Math.random() * 3)];
 
   const handlePlayerChoice = (e: any) => {
-    /* if (playerPoints == 1) {
-      return VictoryScreen();
-    }
-    if (computerPoints == 1) {
-      return DefeatScreen();
-    }*/
     if (playerChoice === "") {
       setGameResult("Select an option!");
     }
@@ -95,9 +89,6 @@ const calculateRockPaperScissors: React.FC = () => {
 
           <div className="content-rps flex flex-col-reverse flex-wrap items-center bg-primary-400">
             <div className="content">
-              {/*  {computerPoints == 1 && <div> {gameOverScreen()} </div>}
-            {playerPoints == 1 && <div> {gameOverScreen()}</div>}*/}
-
               <div className="flex place-content-center font-semibold text-success-300">
                 Select and play!
               </div>
