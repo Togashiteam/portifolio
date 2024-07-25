@@ -1,32 +1,26 @@
 "use client";
 
+import { Result } from "postcss";
 import { useState, useRef, useEffect } from "react";
+import { DiVim } from "react-icons/di";
 
-//animate__zoomIn Talvez esse pra victory animate.css site
-//animate__tada ou esse. src/app/rockPaperScissors/victoryScreen/page.tsx
 interface IGameResultProps {
   result: string;
+  playerPoints: number;
+  computerPoints: number;
   setShowGame: () => void;
 }
 
-/*
-
-usar a const handleShowGame = () => setShowGame(!showGame);
-
-Como manipular um valor de um component filho através do component pai.
-
-*/
-
-const GameResult = ({ result, setShowGame }: IGameResultProps) => {
+const GameResult = ({
+  result,
+  setShowGame,
+  playerPoints,
+  computerPoints,
+}: IGameResultProps) => {
   const winAudio = useRef<HTMLAudioElement>(null);
   const loseAudio = useRef<HTMLAudioElement>(null);
   const tieAudio = useRef<HTMLAudioElement>(null);
 
-  useEffect(() => {
-    if (result === "You win!") {
-      winAudio.current?.play();
-    }
-  }, [result]);
   useEffect(() => {
     if (result === "You win!") {
       winAudio.current?.play();
@@ -36,6 +30,8 @@ const GameResult = ({ result, setShowGame }: IGameResultProps) => {
     }
     if (result === "It's a tie!") {
       tieAudio.current?.play();
+    }
+    if (result === "GAME OVER!") {
     }
   }, [result]);
 
@@ -52,7 +48,10 @@ const GameResult = ({ result, setShowGame }: IGameResultProps) => {
         duration-300 justify-center items-center"
             onClick={setShowGame}
           >
-            Play again!
+            {result === "It's a tie!" && <div> Try again! </div>}
+            {result === "You win!" && <div> Congratulations! </div>}
+            {result === "You lose!" && <div> Sorry, try again! </div>}
+            {result === "GAME OVER!" && <div> Restart game</div>}
           </button>
         </div>
       </div>
