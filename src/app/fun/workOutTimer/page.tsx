@@ -64,24 +64,15 @@ const CalculateWorkOutTimer: React.FC = () => {
   };
 
   useEffect(() => {
-    if (seconds < 0 || minutes < 0) {
-    }
-  });
-
-  useEffect(() => {
     const setInitialTimeBasedOnOption = () => {
       if (selectedOption == "Countdown") {
-        console.log("countdown");
         setMinutes(0);
         setSeconds(0);
-        console.log(seconds, minutes);
         return { seconds, minutes };
       }
       if (selectedOption == "Count up") {
-        console.log("Count up");
         setMinutes(0);
         setSeconds(-3);
-        console.log(seconds, minutes);
         return { seconds, minutes };
       }
     };
@@ -105,7 +96,7 @@ const CalculateWorkOutTimer: React.FC = () => {
             return prevSeconds - 1;
           }
         });
-      }, 1000);
+      }, 50);
 
       return () => clearInterval(interval);
     }
