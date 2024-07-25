@@ -17,10 +17,8 @@ const TimerDisplay: React.FC<TimerDisplayProps> = ({
   return (
     <div className="grid justify-items-center">
       <div className="item-wrapper">
-        <div
-          className={`flex place-content-center font-semibold sm:w-72 h-80 ${isActive ? "text-9xl" : "text-5xl"}`}
-        >
-          {selectedOption == "Count up" && minutes == 0 && seconds < 0
+        <div className="flex place-content-center font-semibold sm:w-72 h-80 text-9xl">
+          {selectedOption == "Count up" && minutes == 0 && seconds <= 0
             ? ["READY!", "SET!", "GO!"][seconds + 3]
             : `${formatTime(minutes)}:${formatTime(seconds)}`}
         </div>

@@ -151,7 +151,7 @@ const CalculateWorkOutTimer: React.FC = () => {
     <>
       <div className="wrapper max-w-screen h-screen flex flex-col">
         <Header />
-        <div className="content-counter sm:flex flex-col-reverse flex-wrap items-center bg-primary-400 content-counter grow justify-center">
+        <div className="content-counter flex  items-center bg-primary-400 content-counter grow justify-center">
           <div className="content">
             {!isActive &&
               seconds === 0 &&
@@ -192,7 +192,7 @@ const CalculateWorkOutTimer: React.FC = () => {
                 />
               </div>
 
-              <div className="winner flex justify-center sm:justify-center text-success-300 text-4xl">
+              <div className="winner flex justify-center text-success-300 text-4xl">
                 {!isActive && (
                   <button
                     className="w-84 h-14 p-1 m-3 flex-auto rounded-lg border border-dark-700 transition ease-in-out delay-150 bg-success-700 hover:bg-success-400 duration-300 text-light-300"
