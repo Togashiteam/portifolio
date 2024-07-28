@@ -9,7 +9,7 @@ import { FaRunning } from "react-icons/fa";
 import { IoPlay } from "react-icons/io5";
 
 const CalculateWorkOutTimer: React.FC = () => {
-  const [seconds, setSeconds] = useState<number>(0);
+  const [seconds, setSeconds] = useState<number>(-3);
   const [minutes, setMinutes] = useState<number>(0);
   const [isActive, setIsActive] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,7 +23,7 @@ const CalculateWorkOutTimer: React.FC = () => {
   const [closeOpen, setCloseOpen] = useState(true);
 
   const handleClose = () => {
-    setCloseOpen(!closeOpen);
+    setCloseOpen(false);
   };
   const handleOptionSelect = (option: string) => {
     setSelectedOption(option);
@@ -64,15 +64,19 @@ const CalculateWorkOutTimer: React.FC = () => {
   };
 
   useEffect(() => {
+    //selection
     const setInitialTimeBasedOnOption = () => {
       if (selectedOption == "Countdown") {
         setMinutes(0);
         setSeconds(0);
+        handleClose();
         return { seconds, minutes };
       }
       if (selectedOption == "Count up") {
         setMinutes(0);
         setSeconds(-3);
+        handleReset();
+
         return { seconds, minutes };
       }
     };
@@ -80,6 +84,7 @@ const CalculateWorkOutTimer: React.FC = () => {
   }, [selectedOption]);
 
   React.useEffect(() => {
+    //countdown
     if (isActive && selectedOption === "Countdown") {
       const interval = setInterval(() => {
         setSeconds((prevSeconds: number) => {
@@ -87,6 +92,7 @@ const CalculateWorkOutTimer: React.FC = () => {
             if (minutes === 0) {
               clearInterval(interval);
               setIsActive(false);
+
               return 0;
             } else {
               setMinutes((prevMinutes) => prevMinutes - 0.5);
@@ -96,13 +102,14 @@ const CalculateWorkOutTimer: React.FC = () => {
             return prevSeconds - 1;
           }
         });
-      }, 50);
+      }, 1000);
 
       return () => clearInterval(interval);
     }
   }, [isActive, selectedOption, minutes, seconds]);
 
   React.useEffect(() => {
+    //count up
     if (isActive && selectedOption == "Count up") {
       const interval = setInterval(() => {
         setSeconds((prevSeconds: number) => {
@@ -123,6 +130,7 @@ const CalculateWorkOutTimer: React.FC = () => {
   }, [isActive]);
 
   useEffect(() => {
+    //sound effects
     if (seconds == -3 && isActive && selectedOption == "Count up") {
       countUpSoundEffect.current?.play();
     }
@@ -158,9 +166,9 @@ const CalculateWorkOutTimer: React.FC = () => {
                 <FaRunning />
               </div>
             )}
-            <br />
-            <div>
-              <div className="item-wrapper justify-center">
+
+            <div className="Modal-Controler ">
+              <div className="item-wrapper ">
                 <Modal
                   isModalOpen={isModalOpen}
                   handleOptionSelect={handleOptionSelect}

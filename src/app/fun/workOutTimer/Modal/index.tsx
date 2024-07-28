@@ -25,6 +25,7 @@ const Modal: React.FC<ModalProps> = ({
 
   const handleMinutesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
+
     setMinutes(value.length <= 2 ? Number(value) : Number(value.slice(0, 2)));
   };
 
@@ -32,20 +33,27 @@ const Modal: React.FC<ModalProps> = ({
     <>
       {isModalOpen && (
         <div className="modal text-danger-300 text-2xl">
-          <div className="modal-content">
-            <button onClick={() => handleOptionSelect("Count up")}>
-              Count up
-            </button>
+          <div className="modal-content ">
             <span> </span>
-            <button onClick={() => handleOptionSelect("Countdown")}>
-              Countdown
-            </button>
-            {selectedOption == "Countdown" && closeOpen && (
+            <select
+              className="mb-1 mt-7"
+              onChange={(e) => handleOptionSelect(e.target.value)}
+            >
+              <option className="count up contain-size" value="Count up">
+                Count up
+              </option>
+              <option className="countdown" value="Countdown">
+                Countdown
+              </option>
+            </select>
+            <span> </span>
+            {selectedOption == "Countdown" && !closeOpen && (
               <div>
-                <div className="input box-border">
+                <div className="input box-border mb-1">
                   <input
+                    className="w-5/12 h-7"
                     type="number"
-                    placeholder="Minute"
+                    placeholder=" Minute"
                     min={0}
                     onChange={handleMinutesChange}
                     onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -54,11 +62,12 @@ const Modal: React.FC<ModalProps> = ({
                     }}
                   />
                 </div>
-                <br />
+
                 <div className="input box-border">
                   <input
+                    className="w-5/12 h-7"
                     type="number"
-                    placeholder="Seconds"
+                    placeholder=" Seconds"
                     min={0}
                     onChange={handleSecondsChange}
                     onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,7 +76,6 @@ const Modal: React.FC<ModalProps> = ({
                     }}
                   />
                 </div>
-                <br />
               </div>
             )}
             <button
