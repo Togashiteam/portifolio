@@ -9,10 +9,9 @@ interface ControlsProps {
 
 import { MdOutlineHourglassTop } from "react-icons/md";
 import { SlOptions } from "react-icons/sl";
-import { TbHandStop } from "react-icons/tb";
 
 const Controls: React.FC<ControlsProps> = ({
-  handlePause,
+
   handleReset,
   handleOpenModal,
   isActive,
@@ -21,32 +20,20 @@ const Controls: React.FC<ControlsProps> = ({
 }) => (
   <div className="grid justify-items-center">
     <div className="item-wrapper justify-center">
-      {!isActive && (
-        <button
-          className="action-button success flex flex-col w-24 h-24 sm:w-24 sm:h-24 space-x-4 m-4 place-content-around sm:flex-col"
-          onClick={isModalOpen ? handleCloseModal : handleOpenModal}
-        >
-          <SlOptions size={80} />
-          <div className="item-box hidden sm:flex">Option</div>
-        </button>
-      )}
       <button
-        className="action-button success flex flex-col w-24 h-24 sm:w-24 sm:h-24 space-x-4 m-4 place-content-around sm:flex-col"
-        onClick={handlePause}
-        disabled={!isActive}
-      >
-        <TbHandStop size={80} />
-        <div className="item-box hidden sm:flex">Pause</div>
-      </button>
-      <button
-        className="action-button success flex flex-col w-24 h-24 sm:w-24 sm:h-24 space-x-4 m-4 place-content-around sm:flex-col"
+        className="action-button success flex items-center w-11 h-11 sm:w-14 sm:h-14 space-x-4 m-4 place-content-around sm:flex-col"
         onClick={handleReset}
       >
-        <MdOutlineHourglassTop size={80} />
-        <div className="item-box hidden visible sm:flex place-content-end">
-          Reset
-        </div>
+        <MdOutlineHourglassTop />
       </button>
+      {!isActive && (
+        <button
+          className="action-button success flex items-center w-11 h-11 sm:w-14 sm:h-14 space-x-4 m-4 place-content-around sm:flex-col"
+          onClick={isModalOpen ? handleCloseModal : handleOpenModal}
+        >
+          <SlOptions />
+        </button>
+      )}
     </div>
   </div>
 );

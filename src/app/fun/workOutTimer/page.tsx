@@ -8,8 +8,11 @@ import AudioPlayer from "./audioControl";
 import { FaRunning } from "react-icons/fa";
 import { IoPlay } from "react-icons/io5";
 
+import { TbHandStop } from "react-icons/tb";
+
+
 const CalculateWorkOutTimer: React.FC = () => {
-  const [seconds, setSeconds] = useState<number>(0);
+  const [seconds, setSeconds] = useState<number>(-3);
   const [minutes, setMinutes] = useState<number>(0);
   const [isActive, setIsActive] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,7 +26,7 @@ const CalculateWorkOutTimer: React.FC = () => {
   const [closeOpen, setCloseOpen] = useState(true);
 
   const handleClose = () => {
-    setCloseOpen(!closeOpen);
+    setCloseOpen(false);
   };
   const handleOptionSelect = (option: string) => {
     setSelectedOption(option);
@@ -63,25 +66,22 @@ const CalculateWorkOutTimer: React.FC = () => {
     setIsActive(false);
   };
 
-  useEffect(() => {
-    if (seconds < 0 || minutes < 0) {
-    }
-  });
+
 
   useEffect(() => {
+    //selection
     const setInitialTimeBasedOnOption = () => {
       if (selectedOption == "Countdown") {
-        console.log("countdown");
         setMinutes(0);
         setSeconds(0);
-        console.log(seconds, minutes);
+        handleClose();
         return { seconds, minutes };
       }
       if (selectedOption == "Count up") {
-        console.log("Count up");
         setMinutes(0);
         setSeconds(-3);
-        console.log(seconds, minutes);
+        handleReset();
+
         return { seconds, minutes };
       }
     };
@@ -89,6 +89,7 @@ const CalculateWorkOutTimer: React.FC = () => {
   }, [selectedOption]);
 
   React.useEffect(() => {
+    //countdown
     if (isActive && selectedOption === "Countdown") {
       const interval = setInterval(() => {
         setSeconds((prevSeconds: number) => {
@@ -96,6 +97,7 @@ const CalculateWorkOutTimer: React.FC = () => {
             if (minutes === 0) {
               clearInterval(interval);
               setIsActive(false);
+
               return 0;
             } else {
               setMinutes((prevMinutes) => prevMinutes - 0.5);
@@ -112,6 +114,7 @@ const CalculateWorkOutTimer: React.FC = () => {
   }, [isActive, selectedOption, minutes, seconds]);
 
   React.useEffect(() => {
+    //count up
     if (isActive && selectedOption == "Count up") {
       const interval = setInterval(() => {
         setSeconds((prevSeconds: number) => {
@@ -132,6 +135,7 @@ const CalculateWorkOutTimer: React.FC = () => {
   }, [isActive]);
 
   useEffect(() => {
+    //sound effects
     if (seconds == -3 && isActive && selectedOption == "Count up") {
       countUpSoundEffect.current?.play();
     }
@@ -151,8 +155,32 @@ const CalculateWorkOutTimer: React.FC = () => {
     <>
       <div className="wrapper max-w-screen h-screen flex flex-col">
         <Header />
-        <div className="content-counter flex  items-center bg-primary-400 content-counter grow justify-center">
-          <div className="content">
+
+        <div className="item-wrapper bg-primary-400">
+          <div>
+            <Controls
+              handlePause={handlePause}
+              handleReset={handleReset}
+              handleOpenModal={handleOpenModal}
+              isActive={isActive}
+              isModalOpen={isModalOpen}
+              handleCloseModal={handleCloseModal}
+            />
+          </div>
+          <Modal
+            isModalOpen={isModalOpen}
+            handleOptionSelect={handleOptionSelect}
+            handleCloseModal={handleCloseModal}
+            closeOpen={closeOpen}
+            handleClose={handleClose}
+            selectedOption={selectedOption}
+            setMinutes={setMinutes}
+            setSeconds={setSeconds}
+          />
+        </div>
+        <div className="content-counter flex  items-center bg-primary-400 content-counter grow justify-center w-full">
+          <div className="content ">
+
             {!isActive &&
               seconds === 0 &&
               minutes === 0 &&
@@ -161,36 +189,15 @@ const CalculateWorkOutTimer: React.FC = () => {
                   Please, add time for the countdown.
                 </div>
               )}
+
             {!isActive && (
               <div className="flex place-content-center font-semibold text-success-300 text-5xl">
                 Let's work out!
                 <FaRunning />
               </div>
             )}
-            <br />
-            <div>
-              <div className="item-wrapper justify-center">
-                <Modal
-                  isModalOpen={isModalOpen}
-                  handleOptionSelect={handleOptionSelect}
-                  handleCloseModal={handleCloseModal}
-                  closeOpen={closeOpen}
-                  handleClose={handleClose}
-                  selectedOption={selectedOption}
-                  setMinutes={setMinutes}
-                  setSeconds={setSeconds}
-                />
-              </div>
-              <div>
-                <Controls
-                  handlePause={handlePause}
-                  handleReset={handleReset}
-                  handleOpenModal={handleOpenModal}
-                  isActive={isActive}
-                  isModalOpen={isModalOpen}
-                  handleCloseModal={handleCloseModal}
-                />
-              </div>
+
+            <div className="Modal-Controler ">
 
               <div className="winner flex justify-center text-success-300 text-4xl">
                 {!isActive && (
@@ -201,6 +208,17 @@ const CalculateWorkOutTimer: React.FC = () => {
                   >
                     <div className="flex justify-center">
                       PLAY! <IoPlay />
+                    </div>
+                  </button>
+                )}
+                {isActive && (
+                  <button
+                    className="w-84 h-14 p-1 m-3 flex-auto rounded-lg border border-dark-700 transition ease-in-out delay-150 bg-success-700 hover:bg-success-400 duration-300 text-light-300"
+                    onClick={handlePause}
+                    disabled={!isActive}
+                  >
+                    <div className="flex justify-center">
+                      Pause <TbHandStop />
                     </div>
                   </button>
                 )}
