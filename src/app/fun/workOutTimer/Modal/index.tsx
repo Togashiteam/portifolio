@@ -33,13 +33,10 @@ const Modal: React.FC<ModalProps> = ({
     <>
       {isModalOpen && (
         <div className="modal text-danger-300 text-2xl">
-          <div className="modal-content ">
+          <div className="modal-content text-lg">
             <span> </span>
-            <select
-              className="mb-1 mt-7"
-              onChange={(e) => handleOptionSelect(e.target.value)}
-            >
-              <option className="count up contain-size" value="Count up">
+            <select onChange={(e) => handleOptionSelect(e.target.value)}>
+              <option className="count up" value="Count up">
                 Count up
               </option>
               <option className="countdown" value="Countdown">
@@ -49,7 +46,7 @@ const Modal: React.FC<ModalProps> = ({
             <span> </span>
             {selectedOption == "Countdown" && !closeOpen && (
               <div>
-                <div className="input box-border mb-1">
+                <div className="input ">
                   <input
                     className="w-5/12 h-7"
                     type="number"
@@ -78,8 +75,9 @@ const Modal: React.FC<ModalProps> = ({
                 </div>
               </div>
             )}
+            <span> </span>
             <button
-              className="text-secondary flex justify-center items-center right-96 box-border rounded-full w-4 h-4 bg-danger-700 shadow-sm hover:shadow-danger-400 text-light-300 text-xl"
+              className="text-secondary flex justify-center items-center right-96 box-border rounded-full w-2 h-2 bg-danger-700 shadow-sm hover:shadow-danger-400 text-light-300 text-xs"
               onClick={handleCloseModal}
             >
               x
@@ -90,4 +88,5 @@ const Modal: React.FC<ModalProps> = ({
     </>
   );
 };
+
 export default Modal;

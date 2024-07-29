@@ -7,6 +7,7 @@ import TimerDisplay from "./TimeDisplay";
 import AudioPlayer from "./audioControl";
 import { FaRunning } from "react-icons/fa";
 import { IoPlay } from "react-icons/io5";
+import { TbHandStop } from "react-icons/tb";
 
 const CalculateWorkOutTimer: React.FC = () => {
   const [seconds, setSeconds] = useState<number>(-3);
@@ -150,8 +151,31 @@ const CalculateWorkOutTimer: React.FC = () => {
     <>
       <div className="wrapper max-w-screen h-screen flex flex-col">
         <Header />
-        <div className="content-counter flex  items-center bg-primary-400 content-counter grow justify-center">
-          <div className="content">
+
+        <div className="item-wrapper bg-primary-400">
+          <div>
+            <Controls
+              handlePause={handlePause}
+              handleReset={handleReset}
+              handleOpenModal={handleOpenModal}
+              isActive={isActive}
+              isModalOpen={isModalOpen}
+              handleCloseModal={handleCloseModal}
+            />
+          </div>
+          <Modal
+            isModalOpen={isModalOpen}
+            handleOptionSelect={handleOptionSelect}
+            handleCloseModal={handleCloseModal}
+            closeOpen={closeOpen}
+            handleClose={handleClose}
+            selectedOption={selectedOption}
+            setMinutes={setMinutes}
+            setSeconds={setSeconds}
+          />
+        </div>
+        <div className="content-counter flex  items-center bg-primary-400 content-counter grow justify-center w-full">
+          <div className="content ">
             {!isActive &&
               seconds === 0 &&
               minutes === 0 &&
@@ -160,6 +184,7 @@ const CalculateWorkOutTimer: React.FC = () => {
                   Please, add time for the countdown.
                 </div>
               )}
+
             {!isActive && (
               <div className="flex place-content-center font-semibold text-success-300 text-5xl">
                 Let's work out!
@@ -168,29 +193,6 @@ const CalculateWorkOutTimer: React.FC = () => {
             )}
 
             <div className="Modal-Controler ">
-              <div className="item-wrapper ">
-                <Modal
-                  isModalOpen={isModalOpen}
-                  handleOptionSelect={handleOptionSelect}
-                  handleCloseModal={handleCloseModal}
-                  closeOpen={closeOpen}
-                  handleClose={handleClose}
-                  selectedOption={selectedOption}
-                  setMinutes={setMinutes}
-                  setSeconds={setSeconds}
-                />
-              </div>
-              <div>
-                <Controls
-                  handlePause={handlePause}
-                  handleReset={handleReset}
-                  handleOpenModal={handleOpenModal}
-                  isActive={isActive}
-                  isModalOpen={isModalOpen}
-                  handleCloseModal={handleCloseModal}
-                />
-              </div>
-
               <div className="winner flex justify-center text-success-300 text-4xl">
                 {!isActive && (
                   <button
@@ -200,6 +202,17 @@ const CalculateWorkOutTimer: React.FC = () => {
                   >
                     <div className="flex justify-center">
                       PLAY! <IoPlay />
+                    </div>
+                  </button>
+                )}
+                {isActive && (
+                  <button
+                    className="w-84 h-14 p-1 m-3 flex-auto rounded-lg border border-dark-700 transition ease-in-out delay-150 bg-success-700 hover:bg-success-400 duration-300 text-light-300"
+                    onClick={handlePause}
+                    disabled={!isActive}
+                  >
+                    <div className="flex justify-center">
+                      Pause <TbHandStop />
                     </div>
                   </button>
                 )}
