@@ -7,7 +7,9 @@ import TimerDisplay from "./TimeDisplay";
 import AudioPlayer from "./audioControl";
 import { FaRunning } from "react-icons/fa";
 import { IoPlay } from "react-icons/io5";
+
 import { TbHandStop } from "react-icons/tb";
+
 
 const CalculateWorkOutTimer: React.FC = () => {
   const [seconds, setSeconds] = useState<number>(-3);
@@ -63,6 +65,8 @@ const CalculateWorkOutTimer: React.FC = () => {
   const handlePause = () => {
     setIsActive(false);
   };
+
+
 
   useEffect(() => {
     //selection
@@ -176,6 +180,7 @@ const CalculateWorkOutTimer: React.FC = () => {
         </div>
         <div className="content-counter flex  items-center bg-primary-400 content-counter grow justify-center w-full">
           <div className="content ">
+
             {!isActive &&
               seconds === 0 &&
               minutes === 0 &&
@@ -193,6 +198,7 @@ const CalculateWorkOutTimer: React.FC = () => {
             )}
 
             <div className="Modal-Controler ">
+
               <div className="winner flex justify-center text-success-300 text-4xl">
                 {!isActive && (
                   <button

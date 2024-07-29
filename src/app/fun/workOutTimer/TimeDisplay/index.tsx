@@ -1,4 +1,3 @@
-import { DiVim } from "react-icons/di";
 
 interface TimerDisplayProps {
   minutes: number;
@@ -19,6 +18,7 @@ const TimerDisplay: React.FC<TimerDisplayProps> = ({
   return (
     <div className="grid justify-items-center">
       <div className="item-wrapper">
+
         <div
           className="flex place-content-center font-semibold sm:w-72 h-80 text-9xl"
           style={{ fontSize: "12rem" }}
@@ -47,6 +47,7 @@ const TimerDisplay: React.FC<TimerDisplayProps> = ({
               {formatTime(minutes)}:{formatTime(seconds)}
             </div>
           )}
+
         </div>
       </div>
     </div>

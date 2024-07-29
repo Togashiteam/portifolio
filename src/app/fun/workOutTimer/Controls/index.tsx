@@ -11,6 +11,7 @@ import { MdOutlineHourglassTop } from "react-icons/md";
 import { SlOptions } from "react-icons/sl";
 
 const Controls: React.FC<ControlsProps> = ({
+
   handleReset,
   handleOpenModal,
   isActive,
