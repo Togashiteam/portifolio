@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 
 import { Backspace } from "react-bootstrap-icons";
-import { evaluateExpressionSafely, formatInput } from "./utils";
 import Header from "../workOutTimer/Header";
+import { evaluateExpressionSafely, formatInput } from "./utils";
 
 export default function BasicCalc() {
   const MATHS = ["/", "*", "+", "-"];

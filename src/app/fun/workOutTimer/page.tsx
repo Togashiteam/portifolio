@@ -1,15 +1,14 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Header from "./Header";
-import Modal from "./Modal";
-import Controls from "./Controls";
-import TimerDisplay from "./TimeDisplay";
-import AudioPlayer from "./audioControl";
 import { FaRunning } from "react-icons/fa";
 import { IoPlay } from "react-icons/io5";
+import Controls from "./Controls";
+import Header from "./Header";
+import Modal from "./Modal";
+import TimerDisplay from "./TimeDisplay";
+import AudioPlayer from "./audioControl";
 
 import { TbHandStop } from "react-icons/tb";
-
 
 const CalculateWorkOutTimer: React.FC = () => {
   const [seconds, setSeconds] = useState<number>(-3);
@@ -66,8 +65,6 @@ const CalculateWorkOutTimer: React.FC = () => {
     setIsActive(false);
   };
 
-
-
   useEffect(() => {
     //selection
     const setInitialTimeBasedOnOption = () => {
@@ -97,7 +94,6 @@ const CalculateWorkOutTimer: React.FC = () => {
             if (minutes === 0) {
               clearInterval(interval);
               setIsActive(false);
-
               return 0;
             } else {
               setMinutes((prevMinutes) => prevMinutes - 0.5);
@@ -180,7 +176,6 @@ const CalculateWorkOutTimer: React.FC = () => {
         </div>
         <div className="content-counter flex  items-center bg-primary-400 content-counter grow justify-center w-full">
           <div className="content ">
-
             {!isActive &&
               seconds === 0 &&
               minutes === 0 &&
@@ -198,7 +193,6 @@ const CalculateWorkOutTimer: React.FC = () => {
             )}
 
             <div className="Modal-Controler ">
-
               <div className="winner flex justify-center text-success-300 text-4xl">
                 {!isActive && (
                   <button

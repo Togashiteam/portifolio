@@ -1,8 +1,6 @@
 "use client";
 
-import { Result } from "postcss";
-import { useState, useRef, useEffect } from "react";
-import { DiVim } from "react-icons/di";
+import { useEffect, useRef } from "react";
 
 interface IGameResultProps {
   result: string;

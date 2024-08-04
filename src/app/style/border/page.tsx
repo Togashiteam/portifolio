@@ -1,39 +1,54 @@
 "use client";
 import AlertComponent from "@/components/atoms/Alert";
-import InputCheckbox from "@/components/atoms/inputs/InputCheckbox";
 import InputColor from "@/components/atoms/inputs/InputColor";
 import InputRange from "@/components/atoms/inputs/InputRange";
 import InputSwitch from "@/components/atoms/inputs/InputSwitch";
-import SelectOptions, { StylesConst } from "@/components/atoms/inputs/SelectOptions";
+import SelectOptions, {
+  StylesConst,
+} from "@/components/atoms/inputs/SelectOptions";
 import BorderEditable from "@/components/irregulars/Border";
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 
 export default function StyleBorder() {
   const [simpleValues, setSimpleValues] = useState<boolean>(true);
 
   const [borderWidthValue, setBorderWidthValue] = useState<string>("1");
   const [borderTopWidthValue, setBorderTopWidthValue] = useState<string>("1");
-  const [borderRightWidthValue, setBorderRightWidthValue] = useState<string>("1");
-  const [borderBottomWidthValue, setBorderBottomWidthValue] = useState<string>("1");
+  const [borderRightWidthValue, setBorderRightWidthValue] =
+    useState<string>("1");
+  const [borderBottomWidthValue, setBorderBottomWidthValue] =
+    useState<string>("1");
   const [borderLeftWidthValue, setBorderLeftWidthValue] = useState<string>("1");
 
   const [borderStyleValue, setBorderStyleValue] = useState<string>("solid");
-  const [borderTopStyleValue, setBorderTopStyleValue] = useState<string>("solid");
-  const [borderRightStyleValue, setBorderRightStyleValue] = useState<string>("solid");
-  const [borderBottomStyleValue, setBorderBottomStyleValue] = useState<string>("solid");
-  const [borderLeftStyleValue, setBorderLeftStyleValue] = useState<string>("solid");
+  const [borderTopStyleValue, setBorderTopStyleValue] =
+    useState<string>("solid");
+  const [borderRightStyleValue, setBorderRightStyleValue] =
+    useState<string>("solid");
+  const [borderBottomStyleValue, setBorderBottomStyleValue] =
+    useState<string>("solid");
+  const [borderLeftStyleValue, setBorderLeftStyleValue] =
+    useState<string>("solid");
 
   const [borderColorValue, setBorderColorValue] = useState<string>("#000000");
-  const [borderTopColorValue, setBorderTopColorValue] = useState<string>("#000000");
-  const [borderRightColorValue, setBorderRightColorValue] = useState<string>("#000000");
-  const [borderBottomColorValue, setBorderBottomColorValue] = useState<string>("#000000");
-  const [borderLeftColorValue, setBorderLeftColorValue] = useState<string>("#000000");
+  const [borderTopColorValue, setBorderTopColorValue] =
+    useState<string>("#000000");
+  const [borderRightColorValue, setBorderRightColorValue] =
+    useState<string>("#000000");
+  const [borderBottomColorValue, setBorderBottomColorValue] =
+    useState<string>("#000000");
+  const [borderLeftColorValue, setBorderLeftColorValue] =
+    useState<string>("#000000");
 
   const [borderRadiusValue, setBorderRadiusValue] = useState<string>("0");
-  const [borderTopLeftRadiusValue, setBorderTopLeftRadiusValue] = useState<string>("0");
-  const [borderTopRightRadiusValue, setBorderTopRightRadiusValue] = useState<string>("0");
-  const [borderBottomLeftRadiusValue, setBorderBottomLeftRadiusValue] = useState<string>("0");
-  const [borderBottomRightRadiusValue, setBorderBottomRightRadiusValue] = useState<string>("0");
+  const [borderTopLeftRadiusValue, setBorderTopLeftRadiusValue] =
+    useState<string>("0");
+  const [borderTopRightRadiusValue, setBorderTopRightRadiusValue] =
+    useState<string>("0");
+  const [borderBottomLeftRadiusValue, setBorderBottomLeftRadiusValue] =
+    useState<string>("0");
+  const [borderBottomRightRadiusValue, setBorderBottomRightRadiusValue] =
+    useState<string>("0");
 
   const [showCopyAlert, setShowCopyAlert] = useState(false);
   const [styleGenerated, setStyleGenerated] = useState<string>();
@@ -46,9 +61,7 @@ export default function StyleBorder() {
     }, 2000);
   };
 
-  const getFormattedStyle = () => {
-
-  }
+  const getFormattedStyle = () => {};
 
   return (
     <>
@@ -59,15 +72,15 @@ export default function StyleBorder() {
         <div className="md:col-span-1">
           <div className="formulario bg-white p-5 overflow-x-clip">
             <div className="simple-value-wrapper">
-            <InputSwitch
-              label="More details"
-              switchValue={simpleValues}
-              setSwitchValue={setSimpleValues}
-              labelTrue="Simple"
-              labelFalse="Complex"
-              defaultValue={simpleValues || false}
-            ></InputSwitch>
-          </div>
+              <InputSwitch
+                label="More details"
+                switchValue={simpleValues}
+                setSwitchValue={setSimpleValues}
+                labelTrue="Simple"
+                labelFalse="Complex"
+                defaultValue={simpleValues || false}
+              ></InputSwitch>
+            </div>
 
             {/* BORDER WIDTH */}
             {simpleValues && (
@@ -76,7 +89,7 @@ export default function StyleBorder() {
                   label={"Border Width"}
                   rangeValue={borderWidthValue}
                   setRangeValue={setBorderWidthValue}
-                  defaultValue={borderWidthValue || '1'}
+                  defaultValue={borderWidthValue || "1"}
                 ></InputRange>
               </div>
             )}
@@ -125,7 +138,7 @@ export default function StyleBorder() {
                   selectedItem={borderStyleValue}
                   itens={StylesConst}
                   setSelectOptionValue={setBorderStyleValue}
-                  defaultValue={borderStyleValue || 'solid'}
+                  defaultValue={borderStyleValue || "solid"}
                 ></SelectOptions>
               </div>
             )}
@@ -137,7 +150,7 @@ export default function StyleBorder() {
                     selectedItem={borderTopStyleValue}
                     itens={StylesConst}
                     setSelectOptionValue={setBorderTopStyleValue}
-                    defaultValue={borderTopStyleValue || 'solid'}
+                    defaultValue={borderTopStyleValue || "solid"}
                   ></SelectOptions>
                 </div>
                 <div className="border-style-wrapper">
@@ -146,7 +159,7 @@ export default function StyleBorder() {
                     selectedItem={borderRightStyleValue}
                     itens={StylesConst}
                     setSelectOptionValue={setBorderRightStyleValue}
-                    defaultValue={borderRightStyleValue || 'solid'}
+                    defaultValue={borderRightStyleValue || "solid"}
                   ></SelectOptions>
                 </div>
                 <div className="border-style-wrapper">
@@ -155,7 +168,7 @@ export default function StyleBorder() {
                     selectedItem={borderBottomStyleValue}
                     itens={StylesConst}
                     setSelectOptionValue={setBorderBottomStyleValue}
-                    defaultValue={borderBottomStyleValue || 'solid'}
+                    defaultValue={borderBottomStyleValue || "solid"}
                   ></SelectOptions>
                 </div>
                 <div className="border-style-wrapper">
@@ -164,7 +177,7 @@ export default function StyleBorder() {
                     selectedItem={borderLeftStyleValue}
                     itens={StylesConst}
                     setSelectOptionValue={setBorderLeftStyleValue}
-                    defaultValue={borderLeftStyleValue || 'solid'}
+                    defaultValue={borderLeftStyleValue || "solid"}
                   ></SelectOptions>
                 </div>
               </div>
@@ -228,7 +241,7 @@ export default function StyleBorder() {
                   label={"Border Radius"}
                   rangeValue={borderRadiusValue}
                   setRangeValue={setBorderRadiusValue}
-                  defaultValue={borderRadiusValue || '0'}
+                  defaultValue={borderRadiusValue || "0"}
                 ></InputRange>
               </div>
             )}
@@ -239,7 +252,7 @@ export default function StyleBorder() {
                     label={"Border Top Left Radius"}
                     rangeValue={borderTopLeftRadiusValue}
                     setRangeValue={setBorderTopLeftRadiusValue}
-                    defaultValue={borderTopLeftRadiusValue || '0'}
+                    defaultValue={borderTopLeftRadiusValue || "0"}
                   ></InputRange>
                 </div>
                 <div className="border-radius-wrapper">
@@ -247,7 +260,7 @@ export default function StyleBorder() {
                     label={"Border Top Right Radius"}
                     rangeValue={borderTopRightRadiusValue}
                     setRangeValue={setBorderTopRightRadiusValue}
-                    defaultValue={borderTopRightRadiusValue || '0'}
+                    defaultValue={borderTopRightRadiusValue || "0"}
                   ></InputRange>
                 </div>
                 <div className="border-radius-wrapper">
@@ -255,7 +268,7 @@ export default function StyleBorder() {
                     label={"Border Bottom Left Radius"}
                     rangeValue={borderBottomLeftRadiusValue}
                     setRangeValue={setBorderBottomLeftRadiusValue}
-                    defaultValue={borderBottomLeftRadiusValue || '0'}
+                    defaultValue={borderBottomLeftRadiusValue || "0"}
                   ></InputRange>
                 </div>
                 <div className="border-radius-wrapper">
@@ -263,7 +276,7 @@ export default function StyleBorder() {
                     label={"Border Bottom Right Radius"}
                     rangeValue={borderBottomRightRadiusValue}
                     setRangeValue={setBorderBottomRightRadiusValue}
-                    defaultValue={borderBottomRightRadiusValue || '0'}
+                    defaultValue={borderBottomRightRadiusValue || "0"}
                   ></InputRange>
                 </div>
               </div>
@@ -306,76 +319,41 @@ export default function StyleBorder() {
               <pre>
                 {simpleValues && (
                   <>
-                    <p>
-                      border-width: {borderWidthValue} px;
-                    </p>
-                    <p>
-                      border-style: {borderStyleValue};
-                    </p>
-                    <p>
-                      border-color: {borderColorValue};
-                    </p>
-                    <p>
-                      border-radius: {borderRadiusValue};
-                    </p>
+                    <p>border-width: {borderWidthValue} px;</p>
+                    <p>border-style: {borderStyleValue};</p>
+                    <p>border-color: {borderColorValue};</p>
+                    <p>border-radius: {borderRadiusValue};</p>
                   </>
                 )}
                 {!simpleValues && (
                   <>
-                    <p>
-                      border-top-width: {borderTopWidthValue} px;
-                    </p>
-                    <p>
-                      border-right-width: {borderRightWidthValue} px;
-                    </p>
-                    <p>
-                      border-bottom-width: {borderBottomWidthValue} px;
-                    </p>
-                    <p>
-                      border-left-width: {borderLeftWidthValue} px;
-                    </p>
+                    <p>border-top-width: {borderTopWidthValue} px;</p>
+                    <p>border-right-width: {borderRightWidthValue} px;</p>
+                    <p>border-bottom-width: {borderBottomWidthValue} px;</p>
+                    <p>border-left-width: {borderLeftWidthValue} px;</p>
 
-                    <p>
-                      border-top-style: {borderTopStyleValue};
-                    </p>
-                    <p>
-                      border-right-style: {borderRightStyleValue};
-                    </p>
-                    <p>
-                      border-bottom-style: {borderBottomStyleValue};
-                    </p>
-                    <p>
-                      border-left-style: {borderLeftStyleValue};
-                    </p>
+                    <p>border-top-style: {borderTopStyleValue};</p>
+                    <p>border-right-style: {borderRightStyleValue};</p>
+                    <p>border-bottom-style: {borderBottomStyleValue};</p>
+                    <p>border-left-style: {borderLeftStyleValue};</p>
 
-                    <p>
-                      border-top-color: {borderTopColorValue};
-                    </p>
-                    <p>
-                      border-right-color: {borderRightColorValue};
-                    </p>
-                    <p>
-                      border-bottom-color: {borderBottomColorValue};
-                    </p>
-                    <p>
-                      border-left-color: {borderLeftColorValue};
-                    </p>
+                    <p>border-top-color: {borderTopColorValue};</p>
+                    <p>border-right-color: {borderRightColorValue};</p>
+                    <p>border-bottom-color: {borderBottomColorValue};</p>
+                    <p>border-left-color: {borderLeftColorValue};</p>
 
+                    <p>border-top-left-radius: {borderTopLeftRadiusValue};</p>
+                    <p>border-top-right-radius: {borderTopRightRadiusValue};</p>
                     <p>
-                      border-top-left-radius: {borderTopLeftRadiusValue};
-                    </p>
-                    <p>
-                      border-top-right-radius: {borderTopRightRadiusValue};
-                    </p>
-                    <p>
-                      border-bottom-right-radius: {borderBottomRightRadiusValue};
+                      border-bottom-right-radius: {borderBottomRightRadiusValue}
+                      ;
                     </p>
                     <p>
                       border-bottom-left-radius: {borderBottomLeftRadiusValue};
                     </p>
                   </>
                 )}
-             </pre>
+              </pre>
             </fieldset>
 
             <button
@@ -384,7 +362,6 @@ export default function StyleBorder() {
             >
               Copiar Código
             </button>
-
           </div>
         </div>
       </div>
