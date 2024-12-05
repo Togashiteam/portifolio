@@ -17,6 +17,20 @@ const GeradorCNPJ: React.FC = () => {
 
   const handler: CNPJHandler = new CNPJHandler();
 
+  const handleCnpjChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const novoValor = e.target.value;
+    setCnpj(aplicarMascaraCNPJ(novoValor)); // Atualiza o valor com a máscara
+    setIsCnpjValid(null); // Reseta o estado de validação
+  };
+
+  const aplicarMascaraCNPJ = (valor: string): string => {
+    const apenasNumeros = valor.replace(/\D/g, "").slice(0, 14);
+    return apenasNumeros.replace(
+      /^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/,
+      "$1.$2.$3/$4-$5",
+    );
+  };
+
   const gerarCNPJ = () => {
     const novoCnpj = handler.generateCNPJ();
     setCnpj(novoCnpj);
@@ -25,10 +39,9 @@ const GeradorCNPJ: React.FC = () => {
   };
 
   const validarCNPJ = (cnpjParaValidar: string): boolean => {
-    if (!cnpjParaValidar)
-      return false;
-    else
-      return handler.validateCNPJ(cnpjParaValidar);
+    const cnpjSemMascara = cnpjParaValidar.replace(/\D/g, "");
+    if (!cnpjSemMascara) return false;
+    return handler.validateCNPJ(cnpjSemMascara);
   };
 
   const gerarFiliais = (quantidade: number) => {
@@ -39,7 +52,7 @@ const GeradorCNPJ: React.FC = () => {
         cnpj: cnpjFilial,
         isValid: null,
       }));
-      setFiliais(novasFiliais); // Sobrescrever as filiais
+      setFiliais(novasFiliais);
     }
   };
 
@@ -66,16 +79,13 @@ const GeradorCNPJ: React.FC = () => {
     <div className="p-6 font-sans">
       <h1 className="text-2xl font-bold mb-4 color-light">Gerador de CNPJ</h1>
 
-      <div class="formulario bg-white p-5 overflow-x-clip">
+      <div className="formulario bg-white p-5 overflow-x-clip">
         {/* Gerar CNPJ Principal */}
         <div className="mb-4">
           <input
             type="text"
             value={cnpj}
-            onChange={(e) => {
-              setCnpj(e.target.value);
-              setIsCnpjValid(null);
-            }}
+            onChange={handleCnpjChange}
             placeholder="Digite ou gere um CNPJ"
             className="p-2 border border-gray-300 rounded w-full max-w-md text-center mb-2"
           />
@@ -109,6 +119,7 @@ const GeradorCNPJ: React.FC = () => {
           <input
             type="number"
             min={1}
+            max={999}
             value={numFiliais}
             onChange={(e) => setNumFiliais(parseInt(e.target.value, 10))}
             placeholder="Quantidade de Filiais"
@@ -118,9 +129,7 @@ const GeradorCNPJ: React.FC = () => {
             onClick={() => gerarFiliais(numFiliais)}
             disabled={!isCnpjValid}
             className={`ml-2 px-4 py-2 rounded ${
-              isCnpjValid
-                ? "btn-primary"
-                : "btn-disabled cursor-not-allowed"
+              isCnpjValid ? "btn-primary" : "btn-disabled cursor-not-allowed"
             }`}
           >
             Gerar Filiais
@@ -137,14 +146,16 @@ const GeradorCNPJ: React.FC = () => {
                   type="text"
                   value={filial.cnpj}
                   onChange={(e) =>
-                    atualizarFilialCNPJ(filial.id, e.target.value)
+                    atualizarFilialCNPJ(
+                      filial.id,
+                      aplicarMascaraCNPJ(e.target.value),
+                    )
                   }
                   className="p-2 border border-gray-300 rounded w-full max-w-md text-center"
                 />
                 <button
                   onClick={() => validarFilial(filial.id, filial.cnpj)}
                   className="px-4 py-2 btn-primary hover:btn-primary-light rounded"
-
                 >
                   Validar Filial
                 </button>
