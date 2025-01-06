@@ -4,10 +4,70 @@ import characters from "./characterList";
 
 const Warhammer: React.FC = () => {
   const [selectedCharacter, setSelectedCharacter] = useState<any | null>(null);
+  const [charCreated, setcharCreated] = useState<boolean>(false);
+  const [getCharName, SetGetCharName] = useState<string>("");
+  const [getCharFaction, SetGetCharFaction] = useState<string>("");
+  const [getCharDescription, SetGetCharDescription] = useState<string>("");
 
   const handleCharacterClick = (character: any) => {
     setSelectedCharacter(character);
+    setcharCreated(false);
   };
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    SetGetCharName(e.target.value);
+  };
+
+  const handleFactionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    SetGetCharFaction(e.target.value);
+  };
+
+  const handleDescriptionChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    SetGetCharDescription(e.target.value);
+  };
+
+  const newFaction = (faction?: string) => {
+    const lastInfo = characters[characters.length - 1];
+
+    return lastInfo.faction;
+  };
+  const newNameCreated = (name?: string) => {
+    const lastInfo = characters[characters.length - 1];
+    return lastInfo.value;
+  };
+
+  const newDescription = (description?: string) => {
+    const lastInfo = characters[characters.length - 1];
+    return lastInfo.description;
+  };
+
+  const newImageUrl = (image?: string) => {
+    const lastInfo = characters[characters.length - 1];
+    return lastInfo.image;
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setcharCreated(true);
+    newFaction();
+    newNameCreated();
+    newDescription();
+
+    characters.push({
+      value: getCharName,
+      faction: getCharFaction,
+      image: "",
+      description: getCharDescription,
+    });
+
+    // Clear form fields after submission
+    SetGetCharName("");
+    SetGetCharFaction("");
+    SetGetCharDescription("");
+  };
+
   return (
     <>
       <div className="wrapper w-screen h-screen">
@@ -23,28 +83,12 @@ const Warhammer: React.FC = () => {
             <div className="text-secondary scissors"> Warhammer </div>
           </div>
         </header>
+
         <div className="charType flex mb-2 flex-col justify-center items-start bg-danger-700">
-          <h2>Factions</h2>
+          <h2>Crie seu personagem</h2>
         </div>
 
-        <div className="item-wrapper justify-center ">
-          <div className="flex justify-items-center"></div>
-        </div>
-        <div className="flex flex-row-reverse justify-end">
-          {/* Display selected character info */}
-          {selectedCharacter && (
-            <div className="character-info flex size-96 m-auto flex-col flex-wrap justify-center text-success-300">
-              <h3 className="flex flex-col">
-                {selectedCharacter.value} - Faction: {selectedCharacter.faction}{" "}
-                <img
-                  className="size-96 backdrop-brightness-50"
-                  src={selectedCharacter.image}
-                  alt={selectedCharacter.faction}
-                />
-                <p className="size-auto m-8">{selectedCharacter.description}</p>
-              </h3>
-            </div>
-          )}
+        <div className="flex">
           <div className="sidebar flex">
             <ul className="cursor-pointer">
               {characters.map((character: any, index: number) => (
@@ -58,6 +102,100 @@ const Warhammer: React.FC = () => {
               ))}
             </ul>
           </div>
+
+          {/* Display selected character info */}
+          {selectedCharacter && (
+            <div className="character-info size-96 m-auto flex-wrap justify-center text-success-300">
+              <h3 className="flex flex-col">
+                {charCreated
+                  ? `${newNameCreated(getCharName)} - Faction: ${newFaction(getCharFaction)}`
+                  : `${selectedCharacter.value} - Faction: ${selectedCharacter.faction}`}
+                <img
+                  className="size-96 backdrop-brightness-50"
+                  src={
+                    charCreated
+                      ? newImageUrl(
+                          "https://thumbs.dreamstime.com/b/red-black-warhammer-model-red-black-warhammer-model-ai-generated-325150441.jpg?w=768",
+                        )
+                      : selectedCharacter.image
+                  }
+                  alt={selectedCharacter.faction}
+                />
+                <p className="size-auto m-8">
+                  {charCreated
+                    ? newDescription(getCharDescription)
+                    : selectedCharacter.description}
+                </p>
+              </h3>
+            </div>
+          )}
+
+          {/* Character form */}
+          {!charCreated && (
+            <div className="form flex m-auto flex-row-reverse flex-wrap justify-center p-6">
+              <form
+                className="criarChar flex flex-col space-y-4 w-full max-w-lg bg-white p-8 rounded-lg shadow-md"
+                onSubmit={handleSubmit}
+              >
+                <div className="flex flex-col size-auto m-auto flex-wrap justify-center">
+                  <label
+                    htmlFor="name"
+                    className="text-sm font-medium text-gray-700"
+                  >
+                    Nome do personagem
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    placeholder="Nome do personagem"
+                    value={getCharName} // Associando o valor do campo ao estado
+                    onChange={handleNameChange} // Atualizando o estado conforme o usuário digita
+                    className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+
+                <div className="flex flex-col">
+                  <label
+                    htmlFor="faction"
+                    className="text-sm font-medium text-gray-700"
+                  >
+                    Nome da facção
+                  </label>
+                  <input
+                    id="faction"
+                    type="text"
+                    placeholder="Nome da facção"
+                    value={getCharFaction} // Associando o valor do campo ao estado
+                    onChange={handleFactionChange} // Atualizando o estado conforme o usuário digita
+                    className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  />
+                </div>
+
+                <div className="flex flex-col">
+                  <label
+                    htmlFor="description"
+                    className="text-sm font-medium text-gray-700"
+                  >
+                    Descreva o personagem
+                  </label>
+                  <textarea
+                    id="description"
+                    placeholder="Descreva o personagem"
+                    value={getCharDescription} // Associando o valor do campo ao estado
+                    onChange={handleDescriptionChange} // Atualizando o estado conforme o usuário digita
+                    className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 h-32 resize-none"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3 mt-4 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                >
+                  Criar Personagem
+                </button>
+              </form>
+            </div>
+          )}
         </div>
       </div>
     </>

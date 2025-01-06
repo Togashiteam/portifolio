@@ -1,6 +1,3 @@
-import { Url } from "next/dist/shared/lib/router/router";
-import { useEffect } from "react";
-
 interface Character extends CharDescription {
   value: string;
   faction: string;
