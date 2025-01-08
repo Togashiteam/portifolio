@@ -4,8 +4,6 @@ import { useEffect, useRef } from "react";
 
 interface IGameResultProps {
   result: string;
-  playerPoints: number;
-  computerPoints: number;
   setShowGame: () => void;
 }
 

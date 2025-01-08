@@ -230,12 +230,7 @@ const calculateRockPaperScissors: React.FC = () => {
           </footer>
         </div>
       ) : (
-        <GameResult
-          setShowGame={handleShowGame}
-          result={gameResult}
-          playerPoints={playerPoints}
-          computerPoints={computerPoints}
-        />
+        <GameResult setShowGame={handleShowGame} result={gameResult} />
       )}
     </>
   );
