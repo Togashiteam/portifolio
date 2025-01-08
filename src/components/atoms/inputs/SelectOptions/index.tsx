@@ -1,5 +1,5 @@
-"use client"
-import { ChangeEvent, OptionHTMLAttributes, useEffect, useState } from "react";
+"use client";
+import { ChangeEvent, useState } from "react";
 
 interface SelectOptionsInterface {
   label: string;
@@ -10,20 +10,21 @@ interface SelectOptionsInterface {
 }
 
 export default function SelectOptions(props: SelectOptionsInterface) {
-
-  const [selectOptionValueChild, setSelectOptionValueChild] = useState<string>(props.defaultValue);
+  const [selectOptionValueChild, setSelectOptionValueChild] = useState<string>(
+    props.defaultValue,
+  );
   const setSelectValue = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectOptionValueChild(e.currentTarget.value);
     props.setSelectOptionValue(e.currentTarget.value);
   };
 
-return (
-  <>
-     <label
+  return (
+    <>
+      <label
         htmlFor="selectOption"
         className="block text-sm font-medium leading-6 text-gray-900"
       >
-        { props.label }
+        {props.label}
       </label>
       <div className="mt-2">
         <select
@@ -32,72 +33,77 @@ return (
           onChange={setSelectValue}
           value={selectOptionValueChild}
         >
-        { props.itens.map(item => <option id={`id-${item.value}`} value={item.value}> {item.label} </option>) }
+          {props.itens.map((item) => (
+            <option id={`id-${item.value}`} value={item.value}>
+              {" "}
+              {item.label}{" "}
+            </option>
+          ))}
         </select>
       </div>
-  </>
-);}
-
+    </>
+  );
+}
 
 export const StylesConst: any[] = [
   {
-    value: 'solid',
+    value: "solid",
     disabled: false,
-    label: 'solid',
-    selected: false
+    label: "solid",
+    selected: false,
   },
   {
-    value: 'dotted',
+    value: "dotted",
     disabled: false,
-    label: 'dotted',
-    selected: false
+    label: "dotted",
+    selected: false,
   },
   {
-    value: 'dashed',
+    value: "dashed",
     disabled: false,
-    label: 'dashed',
-    selected: false
+    label: "dashed",
+    selected: false,
   },
   {
-    value: 'double',
+    value: "double",
     disabled: false,
-    label: 'double',
-    selected: false
+    label: "double",
+    selected: false,
   },
   {
-    value: 'groove',
+    value: "groove",
     disabled: false,
-    label: 'groove',
-    selected: false
+    label: "groove",
+    selected: false,
   },
   {
-    value: 'ridge',
+    value: "ridge",
     disabled: false,
-    label: 'ridge',
-    selected: false
+    label: "ridge",
+    selected: false,
   },
   {
-    value: 'inset',
+    value: "inset",
     disabled: false,
-    label: 'inset',
-    selected: false
+    label: "inset",
+    selected: false,
   },
   {
-    value: 'outset',
+    value: "outset",
     disabled: false,
-    label: 'outset',
-    selected: false
+    label: "outset",
+    selected: false,
   },
   {
-    value: 'none',
+    value: "none",
     disabled: false,
-    label: 'none',
-    selected: false
+    label: "none",
+    selected: false,
   },
   {
-    value: 'hidden',
+    value: "hidden",
     disabled: false,
-    label: 'hidden',
-    selected: false
+    label: "hidden",
+    selected: false,
   },
-]
+];

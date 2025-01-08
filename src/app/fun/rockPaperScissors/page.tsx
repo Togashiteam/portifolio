@@ -62,13 +62,13 @@ const calculateRockPaperScissors: React.FC = () => {
               setplayerPoints(playerPoints + 1);
               setGameResult("You win!");
             };
-            count(e);
+            count(e); // fora de escopo
           } else {
             const count = (e: any) => {
               setComputerPoints(computerPoints + 1);
               setGameResult("You lose!");
             };
-            count(e);
+            count(e); // fora de escopo
           }
           setTimeout(() => {
             if (gameResult == "GAME OVER!") {

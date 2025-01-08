@@ -6,7 +6,6 @@ export const CharacterForm: React.FC = () => {
   const [getCharName, SetGetCharName] = useState<string>("");
   const [getCharFaction, SetGetCharFaction] = useState<string>("");
   const [getCharDescription, SetGetCharDescription] = useState<string>("");
-  const [createImgWithIA, setCreateImgWithIA] = useState<boolean>(false);
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     SetGetCharName(e.target.value);
@@ -22,7 +21,7 @@ export const CharacterForm: React.FC = () => {
     SetGetCharDescription(e.target.value);
   };
 
-  var handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Evita o comportamento padrão de recarregar a página ao enviar o formulário
 
     characters.push({
