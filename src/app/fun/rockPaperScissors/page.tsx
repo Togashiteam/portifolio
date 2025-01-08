@@ -43,7 +43,7 @@ const calculateRockPaperScissors: React.FC = () => {
   const computerChoice =
     Object.values(rpsOptions)[Math.floor(Math.random() * 3)];
 
-  const handlePlayerChoice = (e: any) => {
+  const handlePlayerChoice = () => {
     if (playerChoice === "") {
       setGameResult("Select an option!");
     }
@@ -197,7 +197,7 @@ const calculateRockPaperScissors: React.FC = () => {
                     <button
                       className="w-96 h-14 p-1 m-3 rounded-lg border border-dark-700 transition ease-in-out delay-150 bg-success-700 hover:bg-success-400 duration-300"
                       onClick={() => {
-                        handlePlayerChoice("");
+                        handlePlayerChoice();
                       }}
                     >
                       Play
