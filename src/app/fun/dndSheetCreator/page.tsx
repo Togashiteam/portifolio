@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import Head from "next/head";
+import Recursos from "./Components/Recursos";
+import CharClasses from "./Components/Classes";
 
 export default function dndCharSheet() {
+
   const [character, setCharacter] = useState<IDnDSheet>({
     name: "",
     class: "",
@@ -50,6 +53,9 @@ export default function dndCharSheet() {
               <h1 className="text-4xl font-bold text-yellow-500">
                 DnD 5e Character Sheet
               </h1>
+
+              <Recursos />
+              <CharClasses />
 
               <div className="bg-gray-800 p-6 rounded-lg shadow-md w-full space-y-4">
                 <h2 className="text-2xl font-semibold">
