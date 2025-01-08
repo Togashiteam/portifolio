@@ -8,7 +8,7 @@ interface ItemMenuInterface {
   type: typeItems;
 }
 
-export default function ItemMenu({ type, title }: ItemMenuInterface) {
+export default function ItemMenu({ title }: ItemMenuInterface) {
   return (
     <>
       {title ? <h3>{title}</h3> : null}

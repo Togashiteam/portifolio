@@ -28,22 +28,22 @@ const Warhammer: React.FC = () => {
     SetGetCharDescription(e.target.value);
   };
 
-  const newFaction = (faction?: string) => {
+  const newFaction = () => {
     const lastInfo = characters[characters.length - 1];
 
     return lastInfo.faction;
   };
-  const newNameCreated = (name?: string) => {
+  const newNameCreated = () => {
     const lastInfo = characters[characters.length - 1];
     return lastInfo.value;
   };
 
-  const newDescription = (description?: string) => {
+  const newDescription = () => {
     const lastInfo = characters[characters.length - 1];
     return lastInfo.description;
   };
 
-  const newImageUrl = (image?: string) => {
+  const newImageUrl = () => {
     const lastInfo = characters[characters.length - 1];
     return lastInfo.image;
   };
@@ -108,22 +108,16 @@ const Warhammer: React.FC = () => {
             <div className="character-info size-96 m-auto flex-wrap justify-center text-success-300">
               <h3 className="flex flex-col">
                 {charCreated
-                  ? `${newNameCreated(getCharName)} - Faction: ${newFaction(getCharFaction)}`
+                  ? `${newNameCreated()} - Faction: ${newFaction()}`
                   : `${selectedCharacter.value} - Faction: ${selectedCharacter.faction}`}
                 <img
                   className="size-96 backdrop-brightness-50"
-                  src={
-                    charCreated
-                      ? newImageUrl(
-                          "https://thumbs.dreamstime.com/b/red-black-warhammer-model-red-black-warhammer-model-ai-generated-325150441.jpg?w=768",
-                        )
-                      : selectedCharacter.image
-                  }
+                  src={charCreated ? newImageUrl() : selectedCharacter.image}
                   alt={selectedCharacter.faction}
                 />
                 <p className="size-auto m-8">
                   {charCreated
-                    ? newDescription(getCharDescription)
+                    ? newDescription()
                     : selectedCharacter.description}
                 </p>
               </h3>
