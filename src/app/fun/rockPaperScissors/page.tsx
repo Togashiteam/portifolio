@@ -53,19 +53,19 @@ const calculateRockPaperScissors: React.FC = () => {
             (playerChoice === "rock" && computerChoice === "scissors") ||
             (playerChoice === "scissors" && computerChoice === "paper")
           ) {
-            const count = (e: any) => {
+            const count = () => {
               setplayerPoints(playerPoints + 1);
               setGameResult("You win!");
             };
 
-            count(e);
+            count();
           } else {
-            const count = (e: any) => {
+            const count = () => {
               setComputerPoints(computerPoints + 1);
               setGameResult("You lose!");
             };
 
-            count(e);
+            count();
           }
           setShowGame(!showGame);
         }, 3000);

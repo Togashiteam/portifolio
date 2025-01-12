@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import characters from "./characterList";
+import { characters, onlyFactions } from "./characterList";
 
 const Warhammer: React.FC = () => {
   const [selectedCharacter, setSelectedCharacter] = useState<any | null>(null);
@@ -18,7 +18,7 @@ const Warhammer: React.FC = () => {
     SetGetCharName(e.target.value);
   };
 
-  const handleFactionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFactionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     SetGetCharFaction(e.target.value);
   };
 
@@ -28,17 +28,17 @@ const Warhammer: React.FC = () => {
     SetGetCharDescription(e.target.value);
   };
 
-  const newFaction = (faction?: string) => {
+  const newFaction = () => {
     const lastInfo = characters[characters.length - 1];
 
     return lastInfo.faction;
   };
-  const newNameCreated = (name?: string) => {
+  const newNameCreated = () => {
     const lastInfo = characters[characters.length - 1];
     return lastInfo.value;
   };
 
-  const newDescription = (description?: string) => {
+  const newDescription = () => {
     const lastInfo = characters[characters.length - 1];
     return lastInfo.description;
   };
@@ -89,7 +89,7 @@ const Warhammer: React.FC = () => {
         </div>
 
         <div className="flex">
-          <div className="sidebar flex">
+          <div className="option faction flex">
             <ul className="cursor-pointer">
               {characters.map((character: any, index: number) => (
                 <li
@@ -108,7 +108,7 @@ const Warhammer: React.FC = () => {
             <div className="character-info size-96 m-auto flex-wrap justify-center text-success-300">
               <h3 className="flex flex-col">
                 {charCreated
-                  ? `${newNameCreated(getCharName)} - Faction: ${newFaction(getCharFaction)}`
+                  ? `${newNameCreated()} - Faction: ${newFaction()}`
                   : `${selectedCharacter.value} - Faction: ${selectedCharacter.faction}`}
                 <img
                   className="size-96 backdrop-brightness-50"
@@ -123,7 +123,7 @@ const Warhammer: React.FC = () => {
                 />
                 <p className="size-auto m-8">
                   {charCreated
-                    ? newDescription(getCharDescription)
+                    ? newDescription()
                     : selectedCharacter.description}
                 </p>
               </h3>
@@ -132,9 +132,9 @@ const Warhammer: React.FC = () => {
 
           {/* Character form */}
           {!charCreated && (
-            <div className="form flex m-auto flex-row-reverse flex-wrap justify-center p-6">
+            <div className="form flex m-auto flex-row-reverse flex-wrap rounded-md justify-center p-6 bg-danger-700">
               <form
-                className="criarChar flex flex-col space-y-4 w-full max-w-lg bg-white p-8 rounded-lg shadow-md"
+                className="criarChar flex flex-col space-y-4 w-full max-w-lg p-8 rounded-md shadow-md bg-success-300"
                 onSubmit={handleSubmit}
               >
                 <div className="flex flex-col size-auto m-auto flex-wrap justify-center">
@@ -150,7 +150,7 @@ const Warhammer: React.FC = () => {
                     placeholder="Nome do personagem"
                     value={getCharName} // Associando o valor do campo ao estado
                     onChange={handleNameChange} // Atualizando o estado conforme o usuário digita
-                    className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="mt-1 p-3 border rounded-md "
                   />
                 </div>
 
@@ -161,14 +161,13 @@ const Warhammer: React.FC = () => {
                   >
                     Nome da facção
                   </label>
-                  <input
-                    id="faction"
-                    type="text"
-                    placeholder="Nome da facção"
-                    value={getCharFaction} // Associando o valor do campo ao estado
-                    onChange={handleFactionChange} // Atualizando o estado conforme o usuário digita
-                    className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  />
+                  <select value={getCharFaction} onChange={handleFactionChange}>
+                    {onlyFactions.map((faction: string) => (
+                      <option key={faction} value={faction}>
+                        {faction}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div className="flex flex-col">
@@ -183,13 +182,13 @@ const Warhammer: React.FC = () => {
                     placeholder="Descreva o personagem"
                     value={getCharDescription} // Associando o valor do campo ao estado
                     onChange={handleDescriptionChange} // Atualizando o estado conforme o usuário digita
-                    className="mt-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 h-32 resize-none"
+                    className="mt-1 p-3 border rounded-lg h-32 resize-none"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3 mt-4 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                  className="py-3 mt-4 rounded-lg border hover:bg-success-400"
                 >
                   Criar Personagem
                 </button>

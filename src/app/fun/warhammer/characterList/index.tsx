@@ -228,6 +228,14 @@ export const characters: Character[] = [
     description:
       "Belisarius Cawl is an Archmagos Dominus of the Adeptus Mechanicus. He is responsible for the creation of the Primaris Space Marines and is a master of ancient and advanced technologies.",
   },
+  {
+    value: "Paos com manteirgas",
+    faction: "Sem mecanico",
+    image:
+      "https://static.wikia.nocookie.net/warhammer40k/images/6/66/Belisarius_Cawl.jpg/revision/latest?cb=20170709101502",
+    description:
+      "lor ashdfiuahsdiufjnsadiufhaisudjnh ahsidughnasioudhgiaousnvaisud hfjoasdngoaisdhgoiawj ajweogiahwoigjawgn",
+  },
 ];
 
 const newChar = new Char(
@@ -238,14 +246,21 @@ const newChar = new Char(
 );
 
 const IaCreatedChar = new Char("Value", "faction", "image", "description");
-characters.push(IaCreatedChar);
+const thiago = new Char("Thiago", "Foto", "Inquisitor", "imperium of Man");
+console.log(thiago);
+characters.push(IaCreatedChar, thiago);
 
 if (characters.length >= 0) {
   const pos = characters.length - 1;
-  const cc = new Char("Value", "faction", "image", "description");
-  console.log("RETURN AQUI ", pos, characters[pos]);
 }
 
 console.log("LENGTH ", characters.length - 1);
+
+export const onlyFactions = characters.reduce((acc: any, character: any) => {
+  const faction: any = character.faction;
+  const onlyFactions = !acc.includes(faction) ? [...acc, faction] : acc;
+  return onlyFactions;
+}, []);
+console.log("FACÇÕES: ", onlyFactions);
 
 export default characters;
