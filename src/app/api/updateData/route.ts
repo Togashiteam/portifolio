@@ -1,16 +1,21 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
-const filePath = path.join(process.cwd(), "data", "resources.json");
-console.log("Caminho do arquivo:", filePath);
+const originPath = path.join(process.cwd(), "data");
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
+  console.clear();
+  const { schemma, data } = await request.json();
+  console.log("schemma: ", schemma);
+  const filePath = path.join(originPath, `${schemma}.json`);
+  console.log("filePath: ", filePath);
+
   try {
-    const { schemma, data } = await request.json();
+
 
     // Verifica se o esquema é "resources"
-    if (schemma !== "resources") {
+    if (!validSchemmas.includes(schemma)) {
       throw new Error("Esquema inválido");
     }
 
@@ -20,7 +25,9 @@ export async function POST(request: Request) {
     }
 
     // Salva os dados no arquivo JSON
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+    if (validSchemmas.includes(schemma)) {
+      fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+    }
 
     return NextResponse.json({ message: "Dados salvos com sucesso!" });
   } catch (error) {
@@ -31,3 +38,5 @@ export async function POST(request: Request) {
     );
   }
 }
+
+const validSchemmas = ["resources", "classes"];

@@ -9,7 +9,7 @@ export default function DataList() {
   useEffect(() => {
     console.log("Carregando recursos...");
 
-    fetch("/api/readData") // Endpoint para ler os dados
+    fetch("/api/readData?schemma=resources", { method: "GET" }) // Endpoint para ler os dados
       .then((response) => {
         if (!response.ok) {
           throw new Error("Falha ao carregar os dados");
@@ -17,7 +17,9 @@ export default function DataList() {
         return response.json();
       })
       .then((data) => {
-        setResources(data);
+        console.log('Resources: ', data);
+        const resposta = Object.entries(data).map(([key, url]) => Object.assign({key, url}));
+        setResources(resposta);
         setLoading(false);
       })
       .catch((error) => {

@@ -30,10 +30,10 @@ export default function FetchButton() {
 
   const storeData = async (data: any) => {
     try {
-      const response = await fetch('/api/updateData', {
-        method: 'POST',
+      const response = await fetch("/api/updateData", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ schemma: "resources", data }),
       });
