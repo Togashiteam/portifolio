@@ -5,7 +5,7 @@ export class GeneralInfoModel implements GeneralInfo {
   background: string;
   alignment: string;
   experiencePoints: number;
-
+   
   constructor(
     characterName: string = "",
     race: string = "",
