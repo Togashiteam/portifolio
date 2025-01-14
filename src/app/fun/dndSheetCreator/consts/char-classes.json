@@ -1,7 +1,7 @@
 [
   {
     "name": "Bárbaro",
-    "source": "Player's Handbook (PHB)",
+    "source": "Player"s Handbook (PHB)",
     "primaryAbility": [
       "Força"
     ],
@@ -29,7 +29,7 @@
   },
   {
     "name": "Bardo",
-    "source": "Player's Handbook (PHB)",
+    "source": "Player"s Handbook (PHB)",
     "primaryAbility": [
       "Carisma"
     ],
@@ -68,7 +68,7 @@
   },
   {
     "name": "Bruxo",
-    "source": "Player's Handbook (PHB)",
+    "source": "Player"s Handbook (PHB)",
     "primaryAbility": [
       "Carisma"
     ],
@@ -94,7 +94,7 @@
   },
   {
     "name": "Clérigo",
-    "source": "Player's Handbook (PHB)",
+    "source": "Player"s Handbook (PHB)",
     "primaryAbility": [
       "Sabedoria"
     ],
@@ -121,7 +121,7 @@
   },
   {
     "name": "Druida",
-    "source": "Player's Handbook (PHB)",
+    "source": "Player"s Handbook (PHB)",
     "primaryAbility": [
       "Sabedoria"
     ],
@@ -155,7 +155,7 @@
   },
   {
     "name": "Guerreiro",
-    "source": "Player's Handbook (PHB)",
+    "source": "Player"s Handbook (PHB)",
     "primaryAbility": [
       "Força",
       "Destreza"
@@ -186,7 +186,7 @@
   },
   {
     "name": "Mago",
-    "source": "Player's Handbook (PHB)",
+    "source": "Player"s Handbook (PHB)",
     "primaryAbility": [
       "Inteligência"
     ],
@@ -214,7 +214,7 @@
   },
   {
     "name": "Ladino",
-    "source": "Player's Handbook (PHB)",
+    "source": "Player"s Handbook (PHB)",
     "primaryAbility": [
       "Destreza"
     ],
@@ -248,7 +248,7 @@
   },
   {
     "name": "Monge",
-    "source": "Player's Handbook (PHB)",
+    "source": "Player"s Handbook (PHB)",
     "primaryAbility": [
       "Destreza",
       "Sabedoria"
@@ -274,7 +274,7 @@
   },
   {
     "name": "Paladino",
-    "source": "Player's Handbook (PHB)",
+    "source": "Player"s Handbook (PHB)",
     "primaryAbility": [
       "Força",
       "Carisma"
@@ -304,7 +304,7 @@
   },
   {
     "name": "Patrulheiro",
-    "source": "Player's Handbook (PHB)",
+    "source": "Player"s Handbook (PHB)",
     "primaryAbility": [
       "Destreza",
       "Sabedoria"
@@ -334,7 +334,7 @@
   },
   {
     "name": "Feiticeiro",
-    "source": "Player's Handbook (PHB)",
+    "source": "Player"s Handbook (PHB)",
     "primaryAbility": [
       "Carisma"
     ],

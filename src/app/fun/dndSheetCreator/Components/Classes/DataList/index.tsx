@@ -15,7 +15,7 @@ export default function ClassDataList() {
           return response.json();
         })
         .then((data: StoreData<IClassListItem>) => {
-          console.log('Class data', data);
+          console.log("Class data", data);
           setClasses(data.data);
         })
         .catch((error) => {

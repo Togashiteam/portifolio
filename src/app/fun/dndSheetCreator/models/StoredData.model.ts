@@ -4,7 +4,7 @@ export class StoreData<T> implements IStoreData<T> {
   count: number = 0;
   data: T[] = [];
   schemma!: string;
-  updated: string = '';
+  updated: string = "";
 
   constructor(schemma: string, json?: T | T[]) {
 
@@ -13,7 +13,7 @@ export class StoreData<T> implements IStoreData<T> {
       this.data = Array.isArray(json) ? json : [json];
       this.schemma = schemma;
       this.updated = DateUtils.getIsoToday();
-      console.log('StoreData: ',this);
+      console.log("StoreData: ",this);
     }
 
   }

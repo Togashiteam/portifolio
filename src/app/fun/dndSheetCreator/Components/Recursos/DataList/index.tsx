@@ -4,7 +4,7 @@ import { ISelectOption, StoreData } from "../../../models/StoredData.model";
 export default function DataList() {
   const schemma = "resources";
   const [resources, setResources] = useState<ISelectOption[]>([]);
-  const [selectedResource, setSelectedResource] = useState<string>('');
+  const [selectedResource, setSelectedResource] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
 
