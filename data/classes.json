@@ -1,6 +1,6 @@
 {
   "count": 12,
-  "results": [
+  "data": [
     {
       "index": "barbarian",
       "name": "Barbarian",
@@ -61,5 +61,7 @@
       "name": "Wizard",
       "url": "/api/classes/wizard"
     }
-  ]
+  ],
+  "updated": "2025-01-14",
+  "schemma": "classes"
 }

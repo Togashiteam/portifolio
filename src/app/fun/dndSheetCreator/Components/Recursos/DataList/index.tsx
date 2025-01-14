@@ -1,25 +1,26 @@
 import { useEffect, useState } from "react";
+import { ISelectOption, StoreData } from "../../../models/StoredData.model";
 
 export default function DataList() {
-  const [resources, setResources] = useState<any[]>([]);
-  const [showList, setShowList] = useState<boolean>(false);
+  const schemma = "resources";
+  const [resources, setResources] = useState<ISelectOption[]>([]);
+  const [selectedResource, setSelectedResource] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
 
   useEffect(() => {
-    console.log("Carregando recursos...");
-
-    fetch("/api/readData?schemma=resources", { method: "GET" }) // Endpoint para ler os dados
+    fetch(`/api/readData?schemma=${schemma}`, { method: "GET" }) // Endpoint para ler os dados
       .then((response) => {
         if (!response.ok) {
           throw new Error("Falha ao carregar os dados");
         }
         return response.json();
       })
-      .then((data) => {
-        console.log('Resources: ', data);
-        const resposta = Object.entries(data).map(([key, url]) => Object.assign({key, url}));
-        setResources(resposta);
+      .then((data: StoreData<unknown>) => {
+        const parsedData: ISelectOption[] = Object.entries(data.data[0]).map(
+          ([key, url]) => Object.assign({ value: url, label: key }),
+        );
+        setResources(parsedData);
         setLoading(false);
       })
       .catch((error) => {
@@ -34,23 +35,24 @@ export default function DataList() {
   }
 
   return (
-    <div>
-      <button
-        className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-        onClick={() => setShowList(!showList)}
+    <>
+      <select
+        name="resources"
+        onChange={(e) => setSelectedResource(e.target.value)}
       >
-        {showList ? "Ocultar lista" : "Mostrar lista"}
-      </button>
+        {resources.map((resource, i) => (
+          <option
+          value={resource.value}
+          key={i}
+          >
+            {resource.label}
+          </option>
+        ))}
+      </select>
 
-      {showList && (
-        <ul>
-          {resources.map((resource) => (
-            <li key={resource.key}>
-              <strong>{resource.key}</strong>: {resource.url}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+      <label className="flex-grow block text-sm font-medium leading-6 text-gray-900"> {selectedResource}</label>
+    </>
   );
 }
+
+

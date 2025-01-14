@@ -54,7 +54,7 @@ export default function dndCharSheet() {
                 DnD 5e Character Sheet
               </h1>
 
-              <Recursos />
+              {/* <Recursos /> */}
               <CharClasses />
 
               <div className="bg-gray-800 p-6 rounded-lg shadow-md w-full space-y-4">

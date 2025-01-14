@@ -1,27 +1,28 @@
 import { useEffect, useState } from "react";
+import { IClassListItem, StoreData } from "../../../models/StoredData.model";
 
 export default function ClassDataList() {
-  const [classes, setClasses] = useState<IClassData[]>([]);
+  const schemma = "classes";
+  const [classes, setClasses] = useState<IClassListItem[]>([]);
   const [showList, setShowList] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        console.log("Carregar dados");
-      } catch (error) {
-        console.error("Erro ao buscar dados:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+      fetch(`/api/readData?schemma=${schemma}`, { method: "GET" }) // Endpoint para ler os dados
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Falha ao carregar os dados");
+          }
+          return response.json();
+        })
+        .then((data: StoreData<IClassListItem>) => {
+          console.log('Class data', data);
+          setClasses(data.data);
+        })
+        .catch((error) => {
+          console.error("Falha ao carregar os dados: ", error);
+        });
 
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return <p>Carregando classes...</p>;
-  }
+    }, []);
 
   return (
     <div>
@@ -34,20 +35,13 @@ export default function ClassDataList() {
 
       {showList && (
         <ul>
-          {classes.map((charClass) => (
-            <li key={charClass._id}>
-              <strong>{charClass._id}:</strong> {charClass.url}
+          {classes.map((charClass, i) => (
+            <li key={i+1}>
+              <strong> {i+1}-{charClass.index}: </strong> {charClass.name} - {charClass.url}
             </li>
           ))}
         </ul>
       )}
     </div>
   );
-}
-
-interface IClassData {
-  _id: string;
-  index: string;
-  name: string;
-  url: string;
 }
