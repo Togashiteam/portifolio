@@ -230,19 +230,19 @@ export const characters: Character[] = [
   },
 ];
 
-const newChar = new Char(
-  "Genestealer Cult",
-  "Genestealer Cult",
-  "https://warhammeruniverse.com/wp-content/uploads/2023/11/00007-3351530214-1024x700.png",
-  "fafasdvagewva",
-);
+// const newChar = new Char(
+//   "Genestealer Cult",
+//   "Genestealer Cult",
+//   "https://warhammeruniverse.com/wp-content/uploads/2023/11/00007-3351530214-1024x700.png",
+//   "fafasdvagewva",
+// );
 
 const IaCreatedChar = new Char("Value", "faction", "image", "description");
 characters.push(IaCreatedChar);
 
 if (characters.length >= 0) {
   const pos = characters.length - 1;
-  const cc = new Char("Value", "faction", "image", "description");
+  // const cc = new Char("Value", "faction", "image", "description");
   console.log("RETURN AQUI ", pos, characters[pos]);
 }
 

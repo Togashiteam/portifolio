@@ -19,7 +19,7 @@ const IMCCalculator: React.FC = () => {
   };
 
   const handleWeightKeyDown = (e: any) => {
-    const formattedweight = formatweight(e.currentTarget.value);  
+    const formattedweight = formatweight(e.currentTarget.value);
     setWeightImcState(formattedweight);
   };
 
@@ -39,7 +39,7 @@ const IMCCalculator: React.FC = () => {
   }
 
   function formatweight(text: string) {
-    let numsAndCommas = text.replace(/^[,]|[^,\d]$/g, ""); //Formato para peso
+    const numsAndCommas = text.replace(/^[,]|[^,\d]$/g, ""); //Formato para peso
     const decPosition = numsAndCommas.indexOf(",");
     const lastDecPosition = numsAndCommas.lastIndexOf(",");
 

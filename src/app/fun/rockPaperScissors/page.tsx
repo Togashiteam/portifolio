@@ -43,7 +43,7 @@ const calculateRockPaperScissors: React.FC = () => {
   const computerChoice =
     Object.values(rpsOptions)[Math.floor(Math.random() * 3)];
 
-  const handlePlayerChoice = (e: any) => {
+  const handlePlayerChoice = () => {
     if (playerChoice === "") {
       setGameResult("Select an option!");
     }
@@ -58,17 +58,17 @@ const calculateRockPaperScissors: React.FC = () => {
             (playerChoice === "rock" && computerChoice === "scissors") ||
             (playerChoice === "scissors" && computerChoice === "paper")
           ) {
-            const count = (e: any) => {
+            const countWinner = () => {
               setplayerPoints(playerPoints + 1);
               setGameResult("You win!");
             };
-            count(e);
+            countWinner();
           } else {
-            const count = (e: any) => {
+            const countLoser = () => {
               setComputerPoints(computerPoints + 1);
               setGameResult("You lose!");
             };
-            count(e);
+            countLoser();
           }
           setTimeout(() => {
             if (gameResult == "GAME OVER!") {
@@ -197,7 +197,7 @@ const calculateRockPaperScissors: React.FC = () => {
                     <button
                       className="w-96 h-14 p-1 m-3 rounded-lg border border-dark-700 transition ease-in-out delay-150 bg-success-700 hover:bg-success-400 duration-300"
                       onClick={() => {
-                        handlePlayerChoice("");
+                        handlePlayerChoice();
                       }}
                     >
                       Play
@@ -230,12 +230,7 @@ const calculateRockPaperScissors: React.FC = () => {
           </footer>
         </div>
       ) : (
-        <GameResult
-          setShowGame={handleShowGame}
-          result={gameResult}
-          playerPoints={playerPoints}
-          computerPoints={computerPoints}
-        />
+        <GameResult setShowGame={handleShowGame} result={gameResult} />
       )}
     </>
   );

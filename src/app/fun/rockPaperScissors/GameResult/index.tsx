@@ -4,17 +4,10 @@ import { useEffect, useRef } from "react";
 
 interface IGameResultProps {
   result: string;
-  playerPoints: number;
-  computerPoints: number;
   setShowGame: () => void;
 }
 
-const GameResult = ({
-  result,
-  setShowGame,
-  playerPoints,
-  computerPoints,
-}: IGameResultProps) => {
+const GameResult = ({ result, setShowGame }: IGameResultProps) => {
   const winAudio = useRef<HTMLAudioElement>(null);
   const loseAudio = useRef<HTMLAudioElement>(null);
   const tieAudio = useRef<HTMLAudioElement>(null);
