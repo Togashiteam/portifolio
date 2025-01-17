@@ -13,6 +13,7 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^7.4.0",
     "animate.css": "^4.1.1",
+    "axios": "^1.7.9",
     "bootstrap-icons": "^1.11.3",
     "next": "14.0.4",
     "react": "^18",
@@ -28,7 +29,7 @@
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
-    "dotenv": "^16.4.4",
+    "dotenv": "^16.4.7",
     "eslint": "^8.56.0",
     "eslint-config-next": "14.0.4",
     "eslint-config-prettier": "^9.1.0",

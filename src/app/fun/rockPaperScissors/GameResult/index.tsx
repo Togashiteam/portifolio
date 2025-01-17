@@ -9,14 +9,6 @@ interface IGameResultProps {
   setShowGame: () => void;
 }
 
-/*
-
-usar a const handleShowGame = () => setShowGame(!showGame);
-
-Como manipular um valor de um component filho através do component pai.
-
-*/
-
 const GameResult = ({ result, setShowGame }: IGameResultProps) => {
   const winAudio = useRef<HTMLAudioElement>(null);
   const loseAudio = useRef<HTMLAudioElement>(null);

@@ -1,8 +1,12 @@
 "use client";
 import React, { useState } from "react";
 import { characters, onlyFactions } from "./characterList";
+import GenerateImage from "./GenerateImage";
 
-const Warhammer: React.FC = () => {
+interface WarhammerProps {
+  imageCreated: string;
+}
+const Warhammer: React.FC<WarhammerProps> = ({ imageCreated }) => {
   const [selectedCharacter, setSelectedCharacter] = useState<any | null>(null);
   const [charCreated, setcharCreated] = useState<boolean>(false);
   const [getCharName, SetGetCharName] = useState<string>("");
@@ -20,12 +24,6 @@ const Warhammer: React.FC = () => {
 
   const handleFactionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     SetGetCharFaction(e.target.value);
-  };
-
-  const handleDescriptionChange = (
-    e: React.ChangeEvent<HTMLTextAreaElement>,
-  ) => {
-    SetGetCharDescription(e.target.value);
   };
 
   const newFaction = () => {
@@ -58,7 +56,7 @@ const Warhammer: React.FC = () => {
     characters.push({
       value: getCharName,
       faction: getCharFaction,
-      image: "",
+      image: newImageUrl(imageCreated),
       description: getCharDescription,
     });
 
@@ -103,7 +101,6 @@ const Warhammer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Display selected character info */}
           {selectedCharacter && (
             <div className="character-info size-96 m-auto flex-wrap justify-center text-success-300">
               <h3 className="flex flex-col">
@@ -114,9 +111,7 @@ const Warhammer: React.FC = () => {
                   className="size-96 backdrop-brightness-50"
                   src={
                     charCreated
-                      ? newImageUrl(
-                          "https://thumbs.dreamstime.com/b/red-black-warhammer-model-red-black-warhammer-model-ai-generated-325150441.jpg?w=768",
-                        )
+                      ? newImageUrl(imageCreated)
                       : selectedCharacter.image
                   }
                   alt={selectedCharacter.faction}
@@ -130,7 +125,6 @@ const Warhammer: React.FC = () => {
             </div>
           )}
 
-          {/* Character form */}
           {!charCreated && (
             <div className="form flex m-auto flex-row-reverse flex-wrap rounded-md justify-center p-6 bg-danger-700">
               <form
@@ -145,6 +139,7 @@ const Warhammer: React.FC = () => {
                     Nome do personagem
                   </label>
                   <input
+                    required
                     id="name"
                     type="text"
                     placeholder="Nome do personagem"
@@ -169,29 +164,11 @@ const Warhammer: React.FC = () => {
                     ))}
                   </select>
                 </div>
-
-                <div className="flex flex-col">
-                  <label
-                    htmlFor="description"
-                    className="text-sm font-medium text-gray-700"
-                  >
-                    Descreva o personagem
-                  </label>
-                  <textarea
-                    id="description"
-                    placeholder="Descreva o personagem"
-                    value={getCharDescription} // Associando o valor do campo ao estado
-                    onChange={handleDescriptionChange} // Atualizando o estado conforme o usuário digita
-                    className="mt-1 p-3 border rounded-lg h-32 resize-none"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="py-3 mt-4 rounded-lg border hover:bg-success-400"
-                >
-                  Criar Personagem
-                </button>
+                <GenerateImage
+                  factionProps={getCharFaction}
+                  promptProps={getCharDescription}
+                  nameProps={getCharName}
+                />
               </form>
             </div>
           )}
