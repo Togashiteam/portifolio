@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { characters, onlyFactions } from "./characterList";
-import GenerateImage from "./GenerateImage";
+import GenerateImage from "./generateForm";
 
 interface WarhammerProps {
   imageCreated: string;
