@@ -17,6 +17,11 @@ export default function Dev() {
             <Link href="dev/fonts">Fonts</Link>
           </div>
         </div>
+        <div className="flex justify-center items-center mx-2 w-48 h-40 bg-primary-300">
+          <div className="text-light-300 font-bold text-lg">
+            <Link href="dev/geradorCnpj">Gerador CNPJ</Link>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -7,6 +7,7 @@ interface WarhammerProps {
   imageCreated: string;
 }
 const Warhammer: React.FC<WarhammerProps> = ({ imageCreated }) => {
+
   const [selectedCharacter, setSelectedCharacter] = useState<any | null>(null);
   const [charCreated, setcharCreated] = useState<boolean>(false);
   const [getCharName, SetGetCharName] = useState<string>("");
@@ -41,7 +42,7 @@ const Warhammer: React.FC<WarhammerProps> = ({ imageCreated }) => {
     return lastInfo.description;
   };
 
-  const newImageUrl = (image?: string) => {
+  const newImageUrl = () => {
     const lastInfo = characters[characters.length - 1];
     return lastInfo.image;
   };
@@ -56,7 +57,7 @@ const Warhammer: React.FC<WarhammerProps> = ({ imageCreated }) => {
     characters.push({
       value: getCharName,
       faction: getCharFaction,
-      image: newImageUrl(imageCreated),
+      image: newImageUrl(),
       description: getCharDescription,
     });
 
@@ -87,6 +88,7 @@ const Warhammer: React.FC<WarhammerProps> = ({ imageCreated }) => {
         </div>
 
         <div className="flex">
+
           <div className="option faction flex">
             <ul className="cursor-pointer">
               {characters.map((character: any, index: number) => (
@@ -109,11 +111,7 @@ const Warhammer: React.FC<WarhammerProps> = ({ imageCreated }) => {
                   : `${selectedCharacter.value} - Faction: ${selectedCharacter.faction}`}
                 <img
                   className="size-96 backdrop-brightness-50"
-                  src={
-                    charCreated
-                      ? newImageUrl(imageCreated)
-                      : selectedCharacter.image
-                  }
+                  src={charCreated ? newImageUrl() : selectedCharacter.image}
                   alt={selectedCharacter.faction}
                 />
                 <p className="size-auto m-8">
@@ -129,6 +127,7 @@ const Warhammer: React.FC<WarhammerProps> = ({ imageCreated }) => {
             <div className="form flex m-auto flex-row-reverse flex-wrap rounded-md justify-center p-6 bg-danger-700">
               <form
                 className="criarChar flex flex-col space-y-4 w-full max-w-lg p-8 rounded-md shadow-md bg-success-300"
+
                 onSubmit={handleSubmit}
               >
                 <div className="flex flex-col size-auto m-auto flex-wrap justify-center">
@@ -139,12 +138,14 @@ const Warhammer: React.FC<WarhammerProps> = ({ imageCreated }) => {
                     Nome do personagem
                   </label>
                   <input
+
                     required
                     id="name"
                     type="text"
                     placeholder="Nome do personagem"
                     value={getCharName} // Associando o valor do campo ao estado
                     onChange={handleNameChange} // Atualizando o estado conforme o usuário digita
+
                     className="mt-1 p-3 border rounded-md "
                   />
                 </div>

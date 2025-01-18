@@ -103,3 +103,31 @@
     color: $light;
   }
 }
+
+/* .btn */
+.btn {
+  &-primary {
+    background-color: $primary-light;
+    color: $text-light;
+  }
+
+  &-success {
+    background-color: $success-dark;
+    color: $text-dark;
+  }
+
+  &-danger {
+    background-color: $danger-dark;
+    color: $text-dark;
+  }
+
+  &-alert {
+    background-color: $alert-dark;
+    color: $text-dark;
+  }
+
+  &-disabled {
+    background-color: $gray;
+    color: $darker;
+  }
+}
