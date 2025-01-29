@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { Rings } from "react-loading-icons";
+import React, { useState } from "react";
 
 interface GenerateImageProps {
   factionProps: string;
@@ -17,7 +17,12 @@ const GenerateImage: React.FC<GenerateImageProps> = ({
   const [loading, setLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  const clearInformation = () => {
+    setPrompt("");
+  };
+
   const handleGenerateImage = async () => {
+    clearInformation();
     if (!prompt) return;
 
     setLoading(true);
@@ -98,18 +103,18 @@ const GenerateImage: React.FC<GenerateImageProps> = ({
 
       <button
         type="submit"
-        className="py-3 mt-4 rounded-lg border hover:bg-success-700"
+        className="py-3 mt-4 p-3 bg-success-600 rounded-lg border hover:bg-success-700 "
         onClick={handleGenerateImage}
         disabled={loading}
       >
-        {loading ? "Criando personagem..." : "Criar personagem"}
+        {!loading ? " Criar novo personagem" : "Criando personagem..."}
       </button>
       {nameProps && (
         <p>
           {nameProps} - Faction {factionProps}
         </p>
       )}
-      {imageUrl && <img src={imageUrl} alt="Generated" />}
+      {imageUrl && <img className="size-fit" src={imageUrl} alt="Generated" />}
       {!imageUrl && loading && <Rings color="#fff" height={100} width={100} />}
       {imageUrl && (
         <div className="flex flex-col">

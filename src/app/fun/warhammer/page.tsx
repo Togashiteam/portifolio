@@ -3,15 +3,16 @@ import React, { useState } from "react";
 import { characters, onlyFactions } from "./characterList";
 import GenerateImage from "./generateForm";
 
-interface WarhammerProps {
-  imageCreated: string;
-}
-const Warhammer: React.FC<WarhammerProps> = ({ imageCreated }) => {
+const Warhammer: React.FC = () => {
   const [selectedCharacter, setSelectedCharacter] = useState<any | null>(null);
   const [charCreated, setcharCreated] = useState<boolean>(false);
   const [getCharName, SetGetCharName] = useState<string>("");
   const [getCharFaction, SetGetCharFaction] = useState<string>("");
   const [getCharDescription, SetGetCharDescription] = useState<string>("");
+
+  const closeCharInfo = () => {
+    setSelectedCharacter(null);
+  };
 
   const handleCharacterClick = (character: any) => {
     setSelectedCharacter(character);
@@ -28,7 +29,6 @@ const Warhammer: React.FC<WarhammerProps> = ({ imageCreated }) => {
 
   const newFaction = () => {
     const lastInfo = characters[characters.length - 1];
-
     return lastInfo.faction;
   };
   const newNameCreated = () => {
@@ -41,14 +41,14 @@ const Warhammer: React.FC<WarhammerProps> = ({ imageCreated }) => {
     return lastInfo.description;
   };
 
-  const newImageUrl = (image?: string) => {
+  const newImageUrl = () => {
     const lastInfo = characters[characters.length - 1];
     return lastInfo.image;
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setcharCreated(true);
+    setcharCreated(false);
     newFaction();
     newNameCreated();
     newDescription();
@@ -56,7 +56,7 @@ const Warhammer: React.FC<WarhammerProps> = ({ imageCreated }) => {
     characters.push({
       value: getCharName,
       faction: getCharFaction,
-      image: newImageUrl(imageCreated),
+      image: newImageUrl(),
       description: getCharDescription,
     });
 
@@ -82,11 +82,9 @@ const Warhammer: React.FC<WarhammerProps> = ({ imageCreated }) => {
           </div>
         </header>
 
-        <div className="charType flex mb-2 flex-col justify-center items-start bg-danger-700">
-          <h2>Crie seu personagem</h2>
-        </div>
+        <div className="charType flex mb-2 flex-col justify-center items-start bg-danger-700"></div>
 
-        <div className="flex">
+        <div className="flex md:flex-wrap justify-center">
           <div className="option faction flex">
             <ul className="cursor-pointer">
               {characters.map((character: any, index: number) => (
@@ -102,33 +100,44 @@ const Warhammer: React.FC<WarhammerProps> = ({ imageCreated }) => {
           </div>
 
           {selectedCharacter && (
-            <div className="character-info size-96 m-auto flex-wrap justify-center text-success-300">
-              <h3 className="flex flex-col">
-                {charCreated
-                  ? `${newNameCreated()} - Faction: ${newFaction()}`
-                  : `${selectedCharacter.value} - Faction: ${selectedCharacter.faction}`}
-                <img
-                  className="size-96 backdrop-brightness-50"
-                  src={
-                    charCreated
-                      ? newImageUrl(imageCreated)
-                      : selectedCharacter.image
-                  }
-                  alt={selectedCharacter.faction}
-                />
-                <p className="size-auto m-8">
-                  {charCreated
-                    ? newDescription()
-                    : selectedCharacter.description}
-                </p>
-              </h3>
-            </div>
+            <>
+              <div>
+                <div className="character-info w-96 max-h-56 pl-14 flex-wrap justify-center text-success-300">
+                  <h3 className="flex flex-col">
+                    {charCreated
+                      ? `${newNameCreated()} - Faction: ${newFaction()}`
+                      : `${selectedCharacter.value} - Faction: ${selectedCharacter.faction}`}
+                    <div className="flex justify-end">
+                      <button
+                        className="close flex justify-center items-center bg-danger-700 w-4 h-4 rounded-full"
+                        onClick={closeCharInfo}
+                      >
+                        {" "}
+                        x{" "}
+                      </button>
+                    </div>
+                    <img
+                      className="flex w-screen m-2 backdrop-brightness-50"
+                      src={
+                        charCreated ? newImageUrl() : selectedCharacter.image
+                      }
+                      alt={selectedCharacter.faction}
+                    />
+                    <p className="size-auto m-2 text-sm p-2 ">
+                      {charCreated
+                        ? newDescription()
+                        : selectedCharacter.description}
+                    </p>
+                  </h3>
+                </div>
+              </div>
+            </>
           )}
 
           {!charCreated && (
-            <div className="form flex m-auto flex-row-reverse flex-wrap rounded-md justify-center p-6 bg-danger-700">
+            <div className="form flex m-auto flex-row-reverse flex-wrap rounded-sm justify-center p-2 bg-danger-700">
               <form
-                className="criarChar flex flex-col space-y-4 w-full max-w-lg p-8 rounded-md shadow-md bg-success-300"
+                className="criarChar flex flex-col space-y-4 w-full max-w-lg p-8 rounded-sm shadow-md bg-success-300"
                 onSubmit={handleSubmit}
               >
                 <div className="flex flex-col size-auto m-auto flex-wrap justify-center">
