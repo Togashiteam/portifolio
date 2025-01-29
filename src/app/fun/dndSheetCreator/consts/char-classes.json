@@ -1,0 +1,422 @@
+[
+  {
+    "name": "Bárbaro",
+    "source": "Player"s Handbook (PHB)",
+    "primaryAbility": [
+      "Força"
+    ],
+    "hitPointDie": "d12",
+    "savingThrowProficiencies": [
+      "Força",
+      "Constituição"
+    ],
+    "skillProficiencies": [
+      "Atletismo",
+      "Intimidação",
+      "Natureza",
+      "Percepção",
+      "Sobrevivência"
+    ],
+    "weaponProficiencies": [
+      "Armas Simples",
+      "Armas Marciais"
+    ],
+    "armorTraining": [
+      "Armaduras Leves",
+      "Armaduras Médias",
+      "Escudos"
+    ]
+  },
+  {
+    "name": "Bardo",
+    "source": "Player"s Handbook (PHB)",
+    "primaryAbility": [
+      "Carisma"
+    ],
+    "hitPointDie": "d8",
+    "savingThrowProficiencies": [
+      "Destreza",
+      "Carisma"
+    ],
+    "skillProficiencies": [
+      "Acrobacia",
+      "Arcanismo",
+      "Atletismo",
+      "Enganação",
+      "História",
+      "Intimidação",
+      "Intuição",
+      "Investigação",
+      "Medicina",
+      "Natureza",
+      "Percepção",
+      "Persuasão",
+      "Prestidigitação",
+      "Religião",
+      "Sobrevivência"
+    ],
+    "weaponProficiencies": [
+      "Armas Simples",
+      "Bestas Leves",
+      "Espadas Curtas",
+      "Espadas Longas",
+      "Rapiers"
+    ],
+    "armorTraining": [
+      "Armaduras Leves"
+    ]
+  },
+  {
+    "name": "Bruxo",
+    "source": "Player"s Handbook (PHB)",
+    "primaryAbility": [
+      "Carisma"
+    ],
+    "hitPointDie": "d8",
+    "savingThrowProficiencies": [
+      "Sabedoria",
+      "Carisma"
+    ],
+    "skillProficiencies": [
+      "Arcanismo",
+      "Enganação",
+      "História",
+      "Intimidação",
+      "Intuição",
+      "Religião"
+    ],
+    "weaponProficiencies": [
+      "Armas Simples"
+    ],
+    "armorTraining": [
+      "Armaduras Leves"
+    ]
+  },
+  {
+    "name": "Clérigo",
+    "source": "Player"s Handbook (PHB)",
+    "primaryAbility": [
+      "Sabedoria"
+    ],
+    "hitPointDie": "d8",
+    "savingThrowProficiencies": [
+      "Sabedoria",
+      "Carisma"
+    ],
+    "skillProficiencies": [
+      "História",
+      "Intuição",
+      "Medicina",
+      "Persuasão",
+      "Religião"
+    ],
+    "weaponProficiencies": [
+      "Armas Simples"
+    ],
+    "armorTraining": [
+      "Armaduras Leves",
+      "Armaduras Médias",
+      "Escudos"
+    ]
+  },
+  {
+    "name": "Druida",
+    "source": "Player"s Handbook (PHB)",
+    "primaryAbility": [
+      "Sabedoria"
+    ],
+    "hitPointDie": "d8",
+    "savingThrowProficiencies": [
+      "Inteligência",
+      "Sabedoria"
+    ],
+    "skillProficiencies": [
+      "Arcanismo",
+      "Intuição",
+      "Medicina",
+      "Natureza",
+      "Percepção",
+      "Religião",
+      "Sobrevivência"
+    ],
+    "weaponProficiencies": [
+      "Clavas",
+      "Dardos",
+      "Cimitarras",
+      "Foices",
+      "Fundas",
+      "Lanças"
+    ],
+    "armorTraining": [
+      "Armaduras Leves",
+      "Armaduras Médias",
+      "Escudos"
+    ]
+  },
+  {
+    "name": "Guerreiro",
+    "source": "Player"s Handbook (PHB)",
+    "primaryAbility": [
+      "Força",
+      "Destreza"
+    ],
+    "hitPointDie": "d10",
+    "savingThrowProficiencies": [
+      "Força",
+      "Constituição"
+    ],
+    "skillProficiencies": [
+      "Acrobacia",
+      "Atletismo",
+      "História",
+      "Intimidação",
+      "Percepção",
+      "Sobrevivência"
+    ],
+    "weaponProficiencies": [
+      "Armas Simples",
+      "Armas Marciais"
+    ],
+    "armorTraining": [
+      "Armaduras Leves",
+      "Armaduras Médias",
+      "Armaduras Pesadas",
+      "Escudos"
+    ]
+  },
+  {
+    "name": "Mago",
+    "source": "Player"s Handbook (PHB)",
+    "primaryAbility": [
+      "Inteligência"
+    ],
+    "hitPointDie": "d6",
+    "savingThrowProficiencies": [
+      "Inteligência",
+      "Sabedoria"
+    ],
+    "skillProficiencies": [
+      "Arcanismo",
+      "História",
+      "Intuição",
+      "Investigação",
+      "Medicina",
+      "Religião"
+    ],
+    "weaponProficiencies": [
+      "Adagas",
+      "Dardos",
+      "Fundas",
+      "Bordões",
+      "Bestas Leves"
+    ],
+    "armorTraining": []
+  },
+  {
+    "name": "Ladino",
+    "source": "Player"s Handbook (PHB)",
+    "primaryAbility": [
+      "Destreza"
+    ],
+    "hitPointDie": "d8",
+    "savingThrowProficiencies": [
+      "Destreza",
+      "Inteligência"
+    ],
+    "skillProficiencies": [
+      "Acrobacia",
+      "Atletismo",
+      "Enganação",
+      "Furtividade",
+      "Intimidação",
+      "Intuição",
+      "Investigação",
+      "Percepção",
+      "Prestidigitação",
+      "Sobrevivência"
+    ],
+    "weaponProficiencies": [
+      "Armas Simples",
+      "Bestas de Mão",
+      "Espadas Curtas",
+      "Rapiers",
+      "Espadas Longas"
+    ],
+    "armorTraining": [
+      "Armaduras Leves"
+    ]
+  },
+  {
+    "name": "Monge",
+    "source": "Player"s Handbook (PHB)",
+    "primaryAbility": [
+      "Destreza",
+      "Sabedoria"
+    ],
+    "hitPointDie": "d8",
+    "savingThrowProficiencies": [
+      "Força",
+      "Destreza"
+    ],
+    "skillProficiencies": [
+      "Acrobacia",
+      "Atletismo",
+      "Furtividade",
+      "História",
+      "Intuição",
+      "Religião"
+    ],
+    "weaponProficiencies": [
+      "Armas Simples",
+      "Espadas Curtas"
+    ],
+    "armorTraining": []
+  },
+  {
+    "name": "Paladino",
+    "source": "Player"s Handbook (PHB)",
+    "primaryAbility": [
+      "Força",
+      "Carisma"
+    ],
+    "hitPointDie": "d10",
+    "savingThrowProficiencies": [
+      "Sabedoria",
+      "Carisma"
+    ],
+    "skillProficiencies": [
+      "Atletismo",
+      "Intuição",
+      "Medicina",
+      "Persuasão",
+      "Religião"
+    ],
+    "weaponProficiencies": [
+      "Armas Simples",
+      "Armas Marciais"
+    ],
+    "armorTraining": [
+      "Armaduras Leves",
+      "Armaduras Médias",
+      "Armaduras Pesadas",
+      "Escudos"
+    ]
+  },
+  {
+    "name": "Patrulheiro",
+    "source": "Player"s Handbook (PHB)",
+    "primaryAbility": [
+      "Destreza",
+      "Sabedoria"
+    ],
+    "hitPointDie": "d10",
+    "savingThrowProficiencies": [
+      "Força",
+      "Destreza"
+    ],
+    "skillProficiencies": [
+      "Atletismo",
+      "Furtividade",
+      "Intuição",
+      "Natureza",
+      "Percepção",
+      "Sobrevivência"
+    ],
+    "weaponProficiencies": [
+      "Armas Simples",
+      "Armas Marciais"
+    ],
+    "armorTraining": [
+      "Armaduras Leves",
+      "Armaduras Médias",
+      "Escudos"
+    ]
+  },
+  {
+    "name": "Feiticeiro",
+    "source": "Player"s Handbook (PHB)",
+    "primaryAbility": [
+      "Carisma"
+    ],
+    "hitPointDie": "d6",
+    "savingThrowProficiencies": [
+      "Constituição",
+      "Carisma"
+    ],
+    "skillProficiencies": [
+      "Arcanismo",
+      "Enganação",
+      "Intimidação",
+      "Intuição",
+      "Persuasão",
+      "Religião"
+    ],
+    "weaponProficiencies": [
+      "Adagas",
+      "Dardos",
+      "Fundas",
+      "Bordões",
+      "Bestas Leves"
+    ],
+    "armorTraining": []
+  },
+  {
+    "name": "Artífice",
+    "source": "Eberron: Rising from the Last War",
+    "primaryAbility": [
+      "Inteligência"
+    ],
+    "hitPointDie": "d8",
+    "savingThrowProficiencies": [
+      "Constituição",
+      "Inteligência"
+    ],
+    "skillProficiencies": [
+      "Arcanismo",
+      "Enganação",
+      "História",
+      "Intuição",
+      "Investigação",
+      "Natureza",
+      "Percepção"
+    ],
+    "weaponProficiencies": [
+      "Armas Simples",
+      "Armas de Fogo (se aplicável)"
+    ],
+    "armorTraining": [
+      "Armaduras Leves",
+      "Armaduras Médias",
+      "Escudos"
+    ]
+  },
+  {
+    "name": "Caçador de Sangue (Blood Hunter)",
+    "source": "Critical Role (Homebrew Oficial)",
+    "primaryAbility": [
+      "Força",
+      "Destreza"
+    ],
+    "hitPointDie": "d10",
+    "savingThrowProficiencies": [
+      "Destreza",
+      "Inteligência"
+    ],
+    "skillProficiencies": [
+      "Atletismo",
+      "Furtividade",
+      "Intimidação",
+      "Natureza",
+      "Percepção",
+      "Sobrevivência"
+    ],
+    "weaponProficiencies": [
+      "Armas Simples",
+      "Armas Marciais"
+    ],
+    "armorTraining": [
+      "Armaduras Leves",
+      "Armaduras Médias"
+    ]
+  }
+]

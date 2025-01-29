@@ -213,10 +213,6 @@ export const characters: Character[] = [
   },
 ];
 
-const newChar = new Char("test", "test", "test", "test");
-
-characters.push(newChar);
-
 if (characters.length >= 0) {
   const pos = characters.length - 1;
 }
@@ -226,6 +222,5 @@ export const onlyFactions = characters.reduce((acc: any, character: any) => {
   const onlyFactions = !acc.includes(faction) ? [...acc, faction] : acc;
   return onlyFactions;
 }, []);
-console.log("FACÇÕES: ", onlyFactions);
 
 export default characters;

@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Alto Elfo",
+    "race": "Elfo",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Elfo da Floresta",
+    "race": "Elfo",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Elfo Negro (Drow)",
+    "race": "Elfo",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Anão da Colina",
+    "race": "Anão",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Anão da Montanha",
+    "race": "Anão",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Halfling Pés Leves",
+    "race": "Halfling",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Halfling Robusto",
+    "race": "Halfling",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Draconato",
+    "race": "Draconato",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Gnomo da Floresta",
+    "race": "Gnomo",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Gnomo das Rochas",
+    "race": "Gnomo",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Meio-Elfo",
+    "race": "Meio-Elfo",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Meio-Orc",
+    "race": "Meio-Orc",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Humano",
+    "race": "Humano",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Humano Variante",
+    "race": "Humano",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Tiefling",
+    "race": "Tiefling",
+    "source": "Player"s Handbook (PHB)"
+  },
+  {
+    "name": "Aarakocra",
+    "race": "Aarakocra",
+    "source": "Elemental Evil Player"s Companion"
+  },
+  {
+    "name": "Genasi da Água",
+    "race": "Genasi",
+    "source": "Elemental Evil Player"s Companion"
+  },
+  {
+    "name": "Genasi do Fogo",
+    "race": "Genasi",
+    "source": "Elemental Evil Player"s Companion"
+  },
+  {
+    "name": "Genasi da Terra",
+    "race": "Genasi",
+    "source": "Elemental Evil Player"s Companion"
+  },
+  {
+    "name": "Genasi do Ar",
+    "race": "Genasi",
+    "source": "Elemental Evil Player"s Companion"
+  },
+  {
+    "name": "Eladrin",
+    "race": "Elfo",
+    "source": "Mordenkainen"s Tome of Foes"
+  },
+  {
+    "name": "Anão Duergar",
+    "race": "Anão",
+    "source": "Mordenkainen"s Tome of Foes"
+  },
+  {
+    "name": "Tiefling Infernal",
+    "race": "Tiefling",
+    "source": "Mordenkainen"s Tome of Foes"
+  },
+  {
+    "name": "Warforged",
+    "race": "Warforged",
+    "source": "Eberron: Rising from the Last War"
+  },
+  {
+    "name": "Kalashtar",
+    "race": "Kalashtar",
+    "source": "Eberron: Rising from the Last War"
+  },
+  {
+    "name": "Changeling",
+    "race": "Changeling",
+    "source": "Eberron: Rising from the Last War"
+  },
+  {
+    "name": "Shifter",
+    "race": "Shifter",
+    "source": "Eberron: Rising from the Last War"
+  },
+  {
+    "name": "Tritão",
+    "race": "Tritão",
+    "source": "Volo"s Guide to Monsters"
+  },
+  {
+    "name": "Firbolg",
+    "race": "Firbolg",
+    "source": "Volo"s Guide to Monsters"
+  },
+  {
+    "name": "Kenku",
+    "race": "Kenku",
+    "source": "Volo"s Guide to Monsters"
+  },
+  {
+    "name": "Lizardfolk",
+    "race": "Lizardfolk",
+    "source": "Volo"s Guide to Monsters"
+  },
+  {
+    "name": "Tabaxi",
+    "race": "Tabaxi",
+    "source": "Volo"s Guide to Monsters"
+  },
+  {
+    "name": "Hobgoblin",
+    "race": "Hobgoblin",
+    "source": "Volo"s Guide to Monsters"
+  },
+  {
+    "name": "Goblin",
+    "race": "Goblin",
+    "source": "Volo"s Guide to Monsters"
+  },
+  {
+    "name": "Kobold",
+    "race": "Kobold",
+    "source": "Volo"s Guide to Monsters"
+  },
+  {
+    "name": "Githyanki",
+    "race": "Gith",
+    "source": "Mordenkainen"s Tome of Foes"
+  },
+  {
+    "name": "Githzerai",
+    "race": "Gith",
+    "source": "Mordenkainen"s Tome of Foes"
+  },
+  {
+    "name": "Leonin",
+    "race": "Leonin",
+    "source": "Mythic Odysseys of Theros"
+  },
+  {
+    "name": "Satyr",
+    "race": "Satyr",
+    "source": "Mythic Odysseys of Theros"
+  },
+  {
+    "name": "Owlin",
+    "race": "Owlin",
+    "source": "Strixhaven: A Curriculum of Chaos"
+  }
+]
