@@ -58,6 +58,7 @@ const calculateRockPaperScissors: React.FC = () => {
             (playerChoice === "rock" && computerChoice === "scissors") ||
             (playerChoice === "scissors" && computerChoice === "paper")
           ) {
+
             const countWinner = () => {
               setplayerPoints(playerPoints + 1);
               setGameResult("You win!");
@@ -69,6 +70,7 @@ const calculateRockPaperScissors: React.FC = () => {
               setGameResult("You lose!");
             };
             countLoser();
+
           }
           setTimeout(() => {
             if (gameResult == "GAME OVER!") {
