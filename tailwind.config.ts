@@ -15,6 +15,7 @@ const config: Config = {
       light: { 300: "#eee", 400: "#ccc" },
     },
     extend: {
+
       borderRadius: {
         normal: "4px",
         exceptional: "8px",

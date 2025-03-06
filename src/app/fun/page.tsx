@@ -46,6 +46,11 @@ export default function Fun() {
             <Link href="fun/warhammer">Warhammer creator</Link>
           </div>
         </div>
+        <div className="flex justify-center items-center mx-2 w-48 h-40 bg-primary-300">
+          <div className="text-light-300 font-bold text-lg">
+            <Link href="fun/flappyOrkWarhammer/startScreen">Flappy Ork</Link>
+          </div>
+        </div>
       </div>
     </>
   );

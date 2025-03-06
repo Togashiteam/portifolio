@@ -136,6 +136,7 @@ const IMCCalculator: React.FC = () => {
                 Acima de 40 Obesidade III (mórbida)
               </p>
             </div>
+
             <div className="flex columns-1 box-border max-w-4xl h-96 rounded-lg bg-success-300 text-primary-700 p-3 m-4 flex-col items-end gap-8 shadow-sm hover:shadow-danger-400">
               <div className="grid">
                 <label className="box-border" htmlFor="weight">
@@ -149,6 +150,7 @@ const IMCCalculator: React.FC = () => {
                   value={weightImcState}
                   onChange={handleWeightKeyDown}
                   placeholder=" 80,500 "
+                  required
                 />
               </div>
               <div className="grid">
@@ -160,14 +162,17 @@ const IMCCalculator: React.FC = () => {
                   value={heightImcState}
                   onChange={handleHeightChange}
                   placeholder=" 1,75"
+                  required
                 />
               </div>
               <button
+                type="submit"
                 className="w-96 h-11 p-1 m-3 rounded-lg border border-dark-700 transition ease-in-out delay-150 bg-success-700 hover:bg-success-400 duration-300"
                 onClick={calculateIMC}
               >
                 Calcular
               </button>
+
               {resultImcState && (
                 <div className="flex items-start gap-2">
                   <h3>Resultado</h3>
